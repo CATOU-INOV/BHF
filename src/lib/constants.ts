@@ -123,12 +123,22 @@ export const SERVICES = [
   {
     slug: "sciage-debit-sur-liste",
     title: "Sciage et débit sur liste",
+    tagline: "Sur mesure",
     text: "Sciage de grumes et billons de 3 à 9,20 m, aux sections de votre liste.",
+    description:
+      "Sciage de résineux locaux aux sections et longueurs de votre liste, de 3 à 9,20 m : charpente, ossature, couverture, aménagements.",
+    image: "/images/debit-sur-liste.jpg",
+    imageAlt: "Commande de bois débités sur liste, prête à partir",
   },
   {
     slug: "rabotage-traitement",
     title: "Rabotage et traitement",
+    tagline: "Finitions",
     text: "Rabotage selon vos cotes et traitement préventif classe 2 pour la charpente.",
+    description:
+      "Rabotage des bois selon vos cotes et traitement préventif classe 2 contre les insectes et champignons, pour la charpente et l'ossature.",
+    image: "/images/bois-ossature-rabote.jpg",
+    imageAlt: "Bois d'ossature séchés et rabotés",
   },
 ] as const;
 
@@ -183,5 +193,24 @@ export const PARTNER = {
     terrasse: "https://pacap84.com/services/terrasse-bois",
     charpente: "https://pacap84.com/services/bois-de-charpente",
     palettes: "https://pacap84.com/services/palettes-bois",
+  },
+} as const;
+
+/** Mentions légales — source : annuaire des entreprises (INSEE), 2026-10-14. null = à compléter avant mise en ligne */
+export const LEGAL = {
+  legalName: "BOIS DU HAUT FOREZ",
+  form: "Société à responsabilité limitée (SARL)",
+  capital: null as string | null, // À COMPLÉTER — Kbis
+  siren: "438 859 431",
+  siret: "438 859 431 00019",
+  rcs: "RCS Saint-Étienne 438 859 431", // À CONFIRMER — greffe compétent (Kbis)
+  vat: "FR21438859431", // calculé depuis le SIREN — À CONFIRMER
+  naf: "16.10A — Sciage et rabotage du bois",
+  registeredOffice: "Le Pont de Chevelière, 42920 Chalmazel-Jeansagnière",
+  publicationDirector: null as string | null, // À COMPLÉTER — Patrice ou William GONDRY (gérants)
+  host: {
+    name: "Hostinger International Ltd.",
+    address: "61 Lordou Vironos Street, 6023 Larnaca, Chypre",
+    url: "https://www.hostinger.fr",
   },
 } as const;

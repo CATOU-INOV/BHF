@@ -3,7 +3,7 @@ import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
 import Faq from "@/components/Faq";
 import { ArrowIcon, CheckIcon, DownloadIcon } from "@/components/Icons";
-import { COMPANY, DOCUMENTS, ESSENCES, FAQ_HOME, PRODUCTS, ZONES, CITIES, PARTNER } from "@/lib/constants";
+import { COMPANY, DOCUMENTS, ESSENCES, FAQ_HOME, PRODUCTS, ZONES, CITIES, PARTNER, SERVICES } from "@/lib/constants";
 import { faqSchema } from "@/lib/schema";
 
 const STATS = [
@@ -139,7 +139,7 @@ export default function HomePage() {
       </section>
 
       {/* DE LA FORÊT AU CHANTIER */}
-      <section className="bg-sciure-100 py-20 md:py-28">
+      <section id="services" className="scroll-mt-24 bg-sciure-100 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4">
           <p className="text-ecorce-600 font-semibold uppercase tracking-widest text-sm mb-3">Nos services de scierie</p>
           <h2 className="text-4xl md:text-5xl font-bold uppercase text-foret-900 leading-none mb-14 max-w-3xl">
@@ -159,6 +159,13 @@ export default function HomePage() {
               </li>
             ))}
           </ol>
+          <div className="flex flex-col sm:flex-row gap-3 mt-12">
+            {SERVICES.map((s) => (
+              <Link key={s.slug} href={`/services/${s.slug}`} className="inline-flex items-center justify-between gap-6 bg-white border border-sciure-200 hover:border-foret-600 px-6 py-4 font-semibold text-foret-800 transition-colors">
+                {s.title} <ArrowIcon />
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 

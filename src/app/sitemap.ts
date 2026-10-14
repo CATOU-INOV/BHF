@@ -1,16 +1,16 @@
 import { MetadataRoute } from "next";
-import { COMPANY } from "@/lib/constants";
-
-// Ne lister que les pages réellement construites
-const PAGES = [
-  { path: "", priority: 1 },
-  { path: "/produits/bois-ronds-fraises", priority: 0.9 },
-  { path: "/produits/bois-de-charpente", priority: 0.9 },
-  { path: "/produits/bois-de-couverture", priority: 0.8 },
-  { path: "/produits/terrasse-bardage", priority: 0.8 },
-];
+import { COMPANY, PRODUCTS, SERVICES } from "@/lib/constants";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  return PAGES.map((p) => ({ url: `${COMPANY.url}${p.path}`, lastModified: now, priority: p.priority }));
+  const pages = [
+    { path: "", priority: 1 },
+    ...PRODUCTS.map((p) => ({ path: `/produits/${p.slug}`, priority: p.featured ? 0.9 : 0.8 })),
+    ...SERVICES.map((s) => ({ path: `/services/${s.slug}`, priority: 0.8 })),
+    { path: "/scierie", priority: 0.7 },
+    { path: "/documentation", priority: 0.6 },
+    { path: "/devis", priority: 0.6 },
+    { path: "/contact", priority: 0.6 },
+  ];
+  return pages.map((p) => ({ url: `${COMPANY.url}${p.path}`, lastModified: now, priority: p.priority }));
 }

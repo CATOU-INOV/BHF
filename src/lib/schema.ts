@@ -54,6 +54,32 @@ export function productSchema(p: { name: string; description: string; url: strin
   };
 }
 
+export function serviceSchema(p: { name: string; description: string; url: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "@id": `${p.url}/#service`,
+    name: p.name,
+    description: p.description,
+    provider: { "@id": `${COMPANY.url}/#business` },
+    areaServed: ZONES.map((z) => ({ "@type": "AdministrativeArea", name: z.name })),
+    url: p.url,
+  };
+}
+
+export function webPageSchema(p: { type?: "WebPage" | "ContactPage" | "AboutPage"; name: string; description: string; url: string }) {
+  return {
+    "@context": "https://schema.org",
+    "@type": p.type ?? "WebPage",
+    "@id": `${p.url}/#webpage`,
+    url: p.url,
+    name: p.name,
+    description: p.description,
+    isPartOf: { "@id": `${COMPANY.url}/#website` },
+    about: { "@id": `${COMPANY.url}/#business` },
+  };
+}
+
 export function faqSchema(faqs: readonly { q: string; a: string }[]) {
   return {
     "@context": "https://schema.org",

@@ -4,10 +4,12 @@ import Breadcrumbs from "./Breadcrumbs";
 import CtaBand from "./CtaBand";
 import Faq from "./Faq";
 import { ArrowIcon, CheckIcon } from "./Icons";
-import { COMPANY, PRODUCTS } from "@/lib/constants";
-import { breadcrumbSchema, faqSchema, graphSchema, productSchema } from "@/lib/schema";
+import { COMPANY, PRODUCTS, SERVICES } from "@/lib/constants";
+import { breadcrumbSchema, faqSchema, graphSchema, productSchema, serviceSchema } from "@/lib/schema";
 
 type Props = {
+  /** « product » → /produits/{slug}, « service » → /services/{slug} */
+  kind?: "product" | "service";
   slug: string;
   h1: string;
   intro: string;
@@ -23,16 +25,22 @@ type Props = {
   cta?: { title: string; text: string };
 };
 
-export default function ProductPageLayout({ slug, h1, intro, heroImage, facts, specs, body, highlights, gallery, faq, cta }: Props) {
-  const product = PRODUCTS.find((p) => p.slug === slug)!;
-  const url = `${COMPANY.url}/produits/${slug}`;
-  const related = PRODUCTS.filter((p) => p.slug !== slug);
+export default function ProductPageLayout({ kind = "product", slug, h1, intro, heroImage, facts, specs, body, highlights, gallery, faq, cta }: Props) {
+  const isService = kind === "service";
+  const product = (isService ? SERVICES : PRODUCTS).find((p) => p.slug === slug)!;
+  const url = `${COMPANY.url}/${isService ? "services" : "produits"}/${slug}`;
+  const related = PRODUCTS.filter((p) => p.slug !== slug).slice(0, 3);
+  const parent = isService
+    ? { name: "Nos services", href: "/#services" }
+    : { name: "Nos produits", href: "/#produits" };
 
   const schema = graphSchema(
-    productSchema({ name: product.title, description: product.description, url, image: heroImage.src }),
+    isService
+      ? serviceSchema({ name: product.title, description: product.description, url })
+      : productSchema({ name: product.title, description: product.description, url, image: heroImage.src }),
     breadcrumbSchema([
       { name: "Accueil", url: COMPANY.url },
-      { name: "Nos produits", url: `${COMPANY.url}/#produits` },
+      { name: parent.name, url: `${COMPANY.url}${parent.href}` },
       { name: product.title, url },
     ]),
     faqSchema(faq),
@@ -47,7 +55,7 @@ export default function ProductPageLayout({ slug, h1, intro, heroImage, facts, s
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2">
           <div className="px-4 py-12 md:py-16 lg:pr-12 flex flex-col">
             <div className="text-foret-100 mb-8">
-              <Breadcrumbs items={[{ name: "Accueil", href: "/" }, { name: "Nos produits", href: "/#produits" }, { name: product.title }]} />
+              <Breadcrumbs items={[{ name: "Accueil", href: "/" }, parent, { name: product.title }]} />
             </div>
             <p className="self-start bg-ecorce-600 text-xs font-bold uppercase tracking-widest px-3 py-1.5 mb-5">{product.tagline}</p>
             <h1 className="text-5xl md:text-6xl font-bold uppercase leading-[0.95] mb-6">{h1}</h1>
@@ -143,7 +151,7 @@ export default function ProductPageLayout({ slug, h1, intro, heroImage, facts, s
 
       {/* AUTRES PRODUITS */}
       <section className="max-w-7xl mx-auto px-4 py-16 md:py-24">
-        <h2 className="text-4xl font-bold uppercase text-foret-900 mb-8">Nos autres produits</h2>
+        <h2 className="text-4xl font-bold uppercase text-foret-900 mb-8">{isService ? "Nos produits" : "Nos autres produits"}</h2>
         <div className="grid md:grid-cols-3 gap-6">
           {related.map((p) => (
             <Link key={p.slug} href={`/produits/${p.slug}`} className="group bg-white border border-sciure-200 hover:border-foret-600 transition-colors">
