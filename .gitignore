@@ -1,0 +1,25 @@
+# dependencies
+/node_modules
+
+# next.js
+/.next/
+/out/
+
+# misc
+.DS_Store
+*.pem
+npm-debug.log*
+
+# env files
+.env*
+
+# typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# Fichiers internes — ne jamais versionner
+# (l'export XML contient les messages du formulaire de contact = données personnelles)
+/recup-wp/
+*.wpress
+*.xlsx
+*.csv

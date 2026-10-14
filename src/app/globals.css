@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+@theme {
+  /* Vert forêt — triangle du logo (#228926) */
+  --color-foret-950: #0b1f0e;
+  --color-foret-900: #112d15;
+  --color-foret-800: #17401c;
+  --color-foret-700: #1d5a23;
+  --color-foret-600: #228926;
+  --color-foret-500: #34a039;
+  --color-foret-100: #e2efe0;
+  --color-foret-50:  #f1f7f0;
+
+  /* Brun écorce — chevron du logo (#9d4804) */
+  --color-ecorce-800: #5c2a03;
+  --color-ecorce-700: #7c3a04;
+  --color-ecorce-600: #9d4804;
+  --color-ecorce-500: #b8590f;
+  --color-ecorce-100: #f5e5d5;
+
+  /* Neutres chauds — sciure */
+  --color-sciure-50:  #fbf8f3;
+  --color-sciure-100: #f4eee4;
+  --color-sciure-200: #e7ddcd;
+  --color-sciure-400: #b3a690;
+
+  --color-charbon-900: #1e1b18;
+  --color-charbon-700: #3b3530;
+  --color-charbon-500: #6b6259;
+
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+  --font-display: var(--font-barlow), var(--font-inter), sans-serif;
+}
+
+body {
+  background: var(--color-sciure-50);
+  color: var(--color-charbon-900);
+  font-family: var(--font-sans);
+}
+
+h1, h2, h3, .font-display {
+  font-family: var(--font-display);
+  letter-spacing: 0.01em;
+}
+
+/* Fines rayures façon trait de scie, pour les fonds sombres */
+.bg-trait-scie {
+  background-image: repeating-linear-gradient(
+    -45deg,
+    rgb(255 255 255 / 0.03) 0 2px,
+    transparent 2px 14px
+  );
+}
