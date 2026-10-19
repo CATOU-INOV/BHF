@@ -125,7 +125,20 @@ export const PRODUCTS: Product[] = [
     image: "/images/lames-terrasse.jpg",
     imageAlt: "Lames de terrasse en résineux local, faces lisses",
   },
+  {
+    slug: "dosses",
+    title: "Dosses délignées",
+    navTitle: "Dosses délignées",
+    tagline: "Bardage rustique",
+    description:
+      "Dosses délignées sapin-douglas en 3 ou 4 m pour habiller abris, box à chevaux et granges, ou monter clôtures et coffrages. 9,99 € TTC le m².",
+    image: "/images/bardage-dosses-abri.jpg",
+    imageAlt: "Abri bardé de dosses délignées en sapin-douglas",
+  },
 ];
+
+/** Prix public des dosses (TTC, hors transport) */
+export const DOSSES_PRICE = { perM2: 9.99, rangM2: 3.3, colisM2: 33 } as const;
 
 export const SERVICES = [
   {

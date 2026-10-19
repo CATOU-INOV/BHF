@@ -48,7 +48,9 @@ export function websiteSchema() {
   };
 }
 
-export function productSchema(p: { name: string; description: string; url: string; image: string }) {
+export type Offer = { price: number; unitText: string; unitCode: string };
+
+export function productSchema(p: { name: string; description: string; url: string; image: string; offer?: Offer }) {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
@@ -59,6 +61,22 @@ export function productSchema(p: { name: string; description: string; url: strin
     brand: { "@type": "Brand", name: COMPANY.name },
     manufacturer: { "@id": `${COMPANY.url}/#business` },
     url: p.url,
+    ...(p.offer && {
+      offers: {
+        "@type": "Offer",
+        price: p.offer.price.toFixed(2),
+        priceCurrency: "EUR",
+        priceSpecification: {
+          "@type": "UnitPriceSpecification",
+          price: p.offer.price,
+          priceCurrency: "EUR",
+          unitCode: p.offer.unitCode,
+          unitText: p.offer.unitText,
+          valueAddedTaxIncluded: true,
+        },
+        seller: { "@id": `${COMPANY.url}/#business` },
+      },
+    }),
   };
 }
 

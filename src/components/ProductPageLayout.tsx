@@ -5,7 +5,7 @@ import CtaBand from "./CtaBand";
 import Faq from "./Faq";
 import { ArrowIcon, CheckIcon } from "./Icons";
 import { COMPANY, PRODUCTS, SERVICES } from "@/lib/constants";
-import { breadcrumbSchema, faqSchema, graphSchema, productSchema, serviceSchema } from "@/lib/schema";
+import { breadcrumbSchema, faqSchema, graphSchema, productSchema, serviceSchema, type Offer } from "@/lib/schema";
 
 type Props = {
   /** « product » → /produits/{slug}, « service » → /services/{slug} */
@@ -23,9 +23,11 @@ type Props = {
   gallery: { src: string; alt: string }[];
   faq: { q: string; a: string }[];
   cta?: { title: string; text: string };
+  /** Prix public, ajouté aux données structurées Product */
+  offer?: Offer;
 };
 
-export default function ProductPageLayout({ kind = "product", slug, h1, intro, heroImage, facts, specs, body, highlights, gallery, faq, cta }: Props) {
+export default function ProductPageLayout({ kind = "product", slug, h1, intro, heroImage, facts, specs, body, highlights, gallery, faq, cta, offer }: Props) {
   const isService = kind === "service";
   const product = (isService ? SERVICES : PRODUCTS).find((p) => p.slug === slug)!;
   const url = `${COMPANY.url}/${isService ? "services" : "produits"}/${slug}`;
@@ -37,7 +39,7 @@ export default function ProductPageLayout({ kind = "product", slug, h1, intro, h
   const schema = graphSchema(
     isService
       ? serviceSchema({ name: product.title, description: product.description, url })
-      : productSchema({ name: product.title, description: product.description, url, image: heroImage.src }),
+      : productSchema({ name: product.title, description: product.description, url, image: heroImage.src, offer }),
     breadcrumbSchema([
       { name: "Accueil", url: COMPANY.url },
       { name: parent.name, url: `${COMPANY.url}${parent.href}` },

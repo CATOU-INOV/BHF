@@ -112,7 +112,7 @@ export default function HomePage() {
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6">
-          <Link href={`/produits/${featured.slug}`} className="group relative isolate overflow-hidden min-h-[420px] lg:row-span-3 flex flex-col justify-end p-8 text-white bg-foret-900">
+          <Link href={`/produits/${featured.slug}`} className="group relative isolate overflow-hidden min-h-[420px] lg:row-span-4 flex flex-col justify-end p-8 text-white bg-foret-900">
             <Image src={featured.image} alt={featured.imageAlt} fill sizes="(min-width:1024px) 50vw, 100vw"
               className="object-cover -z-10 transition-transform duration-500 group-hover:scale-105" />
             <div className="absolute inset-0 -z-10 bg-gradient-to-t from-foret-950 via-foret-950/50 to-transparent" />

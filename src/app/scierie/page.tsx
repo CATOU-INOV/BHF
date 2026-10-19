@@ -172,9 +172,10 @@ export default function ScieriePage() {
           <div>
             <h2 className="text-4xl font-bold uppercase text-foret-900 leading-none mb-6">Rien ne se perd</h2>
             <p className="text-charbon-700 leading-relaxed mb-6">
-              Chaque grume est valorisée jusqu&apos;au bout : les produits connexes du sciage sont aussi
-              disponibles à la scierie, pour le chauffage, le paillage ou la litière. Contactez-nous pour les
-              quantités et les tarifs.
+              Chaque grume est valorisée jusqu&apos;au bout. Les premières coupes deviennent des{" "}
+              <Link href="/produits/dosses" className="font-semibold text-foret-700 underline underline-offset-4">dosses délignées</Link>{" "}
+              pour le bardage rustique, et les produits connexes du sciage sont aussi disponibles à la scierie,
+              pour le chauffage, le paillage ou la litière. Contactez-nous pour les quantités et les tarifs.
             </p>
             <ul className="flex flex-wrap gap-2">
               {BY_PRODUCTS.map((c) => (
