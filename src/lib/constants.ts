@@ -184,7 +184,7 @@ export const CITIES = [
 export const FAQ_HOME = [
   {
     q: "Livrez-vous ?",
-    a: "Dans le Sud (Bouches-du-Rhône, Drôme, Gard, Hérault, Var, Vaucluse), oui : nous groupons votre commande avec les camions qui descendent chez Pacap Bois, entreprise de notre groupe. Pas besoin de remplir un camion : pour 15 m³, vous ne payez que vos 15 m³. Ailleurs, les commandes sont à retirer à la scierie, par vos soins ou par votre transporteur.",
+    a: "Dans le Sud (Bouches-du-Rhône, Drôme, Gard, Hérault, Var, Vaucluse), oui : nous groupons votre commande avec les camions qui descendent chez Pacap Bois, entreprise de notre groupe. Le transport est facturé en plus, mais pas besoin de remplir un camion : pour 15 m³, vous ne payez le transport que pour vos 15 m³. Ailleurs, les commandes sont à retirer à la scierie, par vos soins ou par votre transporteur.",
   },
   {
     q: "Quels sont vos horaires d'enlèvement ?",

@@ -217,7 +217,7 @@ export default function ScieriePage() {
               <a href={PARTNER.url} className="font-semibold text-foret-700 underline underline-offset-4">{PARTNER.name}</a>,
               à {PARTNER.city}, spécialiste des palettes, de l&apos;emballage industriel et du négoce de bois
               dans le Sud-Est. Nos camions descendent régulièrement chez {PARTNER.name} : nous y groupons les
-              commandes de nos clients du Sud, qui ne paient que leur volume, sans devoir remplir un camion.
+              commandes de nos clients du Sud, qui ne paient le transport que pour leur volume, sans devoir remplir un camion.
             </p>
           </div>
         </div>

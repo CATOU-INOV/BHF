@@ -185,9 +185,12 @@ export default function HomePage() {
                 chargement avec les bois destinés à {PARTNER.name}.
               </p>
               <p className="font-display text-2xl md:text-3xl font-bold uppercase text-white leading-tight">
-                Vous commandez 15 m³ ? Vous ne payez que vos 15 m³.
+                Vous commandez 15 m³ ? Vous ne payez le transport que pour vos 15 m³.
               </p>
-              <p>Un service que très peu de scieries peuvent proposer.</p>
+              <p>
+                Le transport est facturé en plus des bois, mais seulement pour votre part du chargement, pas pour
+                un camion complet. Un service que très peu de scieries peuvent proposer.
+              </p>
             </div>
             <ul className="flex flex-wrap gap-2 mt-8">
               {SOUTH_ZONES.map((z) => (
@@ -311,7 +314,7 @@ export default function HomePage() {
           </p>
           <p className="text-sm text-charbon-700 border-t border-sciure-200 mt-6 pt-6">
             Dans le Sud ({SOUTH_ZONES.map((z) => z.code).join(", ")}), nous livrons en groupant votre commande avec
-            les camions de {PARTNER.name} : vous ne payez que votre volume.{" "}
+            les camions de {PARTNER.name} : le transport vous est facturé pour votre seul volume.{" "}
             <a href="#livraison-sud" className="font-semibold text-foret-700 underline underline-offset-4">En savoir plus</a>
           </p>
         </aside>

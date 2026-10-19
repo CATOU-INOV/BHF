@@ -80,7 +80,7 @@ export default function BoisDeCharpentePage() {
             Vous êtes dans le Sud ? Nous livrons vos bois de charpente en les groupant avec les camions qui
             descendent chez{" "}
             <a href={PARTNER.pages.charpente} className="text-foret-700 font-semibold underline underline-offset-4">{PARTNER.name}, à {PARTNER.city}</a>,
-            entreprise de notre groupe : pas besoin de remplir un camion, vous ne payez que votre volume.
+            entreprise de notre groupe : pas besoin de remplir un camion, le transport vous est facturé pour votre seul volume.
           </p>
         </>
       }

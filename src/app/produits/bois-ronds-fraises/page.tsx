@@ -28,7 +28,7 @@ const FAQ = [
   },
   {
     q: "Livrez-vous les bois ronds sur chantier ?",
-    a: "Dans le Sud (13, 26, 30, 34, 83, 84), oui : votre commande est groupée avec les camions de notre groupe et vous ne payez que votre volume. Ailleurs, les bois ronds sont à enlever à la scierie, du lundi au jeudi de 7 h 30 à 16 h 30 ; pour les grandes longueurs, prévoyez un véhicule adapté.",
+    a: "Dans le Sud (13, 26, 30, 34, 83, 84), oui : votre commande est groupée avec les camions de notre groupe et le transport vous est facturé pour votre seul volume. Ailleurs, les bois ronds sont à enlever à la scierie, du lundi au jeudi de 7 h 30 à 16 h 30 ; pour les grandes longueurs, prévoyez un véhicule adapté.",
   },
 ];
 
