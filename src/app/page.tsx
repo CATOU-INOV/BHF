@@ -105,10 +105,15 @@ export default function HomePage() {
               Du bois de structure<br className="hidden md:block" /> à la lame de terrasse
             </h2>
           </div>
-          <p className="text-charbon-700 max-w-md">
-            Toutes nos sections existent en douglas, épicéa, mélèze ou sapin, en débit standard ou
-            sciées sur liste à vos dimensions.
-          </p>
+          <div className="max-w-md">
+            <p className="text-charbon-700 mb-3">
+              Toutes nos sections existent en douglas, épicéa, mélèze ou sapin, en débit standard ou
+              sciées sur liste à vos dimensions.
+            </p>
+            <Link href="/produits" className="inline-flex items-center gap-2 font-semibold text-foret-700 hover:text-foret-600">
+              Toute la gamme <ArrowIcon />
+            </Link>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-6">
@@ -165,6 +170,9 @@ export default function HomePage() {
                 {s.title} <ArrowIcon />
               </Link>
             ))}
+            <Link href="/services" className="inline-flex items-center gap-2 px-2 py-4 font-semibold text-foret-700 hover:text-foret-600">
+              Tous nos services <ArrowIcon />
+            </Link>
           </div>
         </div>
       </section>

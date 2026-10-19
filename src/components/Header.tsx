@@ -57,6 +57,9 @@ export default function Header() {
                     {p.navTitle}
                   </Link>
                 ))}
+                <Link href="/produits" className="block px-5 py-2.5 hover:bg-sciure-100 text-foret-700">
+                  Tous nos produits →
+                </Link>
                 <div className="border-t border-sciure-200 my-2" />
                 {SERVICES.map((s) => (
                   <Link key={s.slug} href={`/services/${s.slug}`}
@@ -64,6 +67,9 @@ export default function Header() {
                     {s.title}
                   </Link>
                 ))}
+                <Link href="/services" className="block px-5 py-2.5 hover:bg-sciure-100 text-foret-700">
+                  Tous nos services →
+                </Link>
               </div>
             )}
           </div>
@@ -98,10 +104,11 @@ export default function Header() {
 
       {menuOpen && (
         <nav className="lg:hidden border-t border-sciure-200 bg-white px-4 py-4 space-y-1 font-semibold text-charbon-700" aria-label="Navigation mobile">
-          <p className="text-xs uppercase tracking-widest text-charbon-500 pb-1">Nos produits</p>
+          <Link href="/produits" className="block text-xs uppercase tracking-widest text-charbon-500 pb-1" onClick={close}>Nos produits</Link>
           {PRODUCTS.map((p) => (
             <Link key={p.slug} href={`/produits/${p.slug}`} className="block py-2 pl-3" onClick={close}>{p.navTitle}</Link>
           ))}
+          <Link href="/services" className="block text-xs uppercase tracking-widest text-charbon-500 pt-3 pb-1" onClick={close}>Nos services</Link>
           {SERVICES.map((s) => (
             <Link key={s.slug} href={`/services/${s.slug}`} className="block py-2 pl-3 text-charbon-500" onClick={close}>{s.title}</Link>
           ))}

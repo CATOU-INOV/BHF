@@ -33,8 +33,8 @@ export default function ProductPageLayout({ kind = "product", slug, h1, intro, h
   const url = `${COMPANY.url}/${isService ? "services" : "produits"}/${slug}`;
   const related = PRODUCTS.filter((p) => p.slug !== slug).slice(0, 3);
   const parent = isService
-    ? { name: "Nos services", href: "/#services" }
-    : { name: "Nos produits", href: "/#produits" };
+    ? { name: "Nos services", href: "/services" }
+    : { name: "Nos produits", href: "/produits" };
 
   const schema = graphSchema(
     isService

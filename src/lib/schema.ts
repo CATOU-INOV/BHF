@@ -93,7 +93,7 @@ export function serviceSchema(p: { name: string; description: string; url: strin
   };
 }
 
-export function webPageSchema(p: { type?: "WebPage" | "ContactPage" | "AboutPage"; name: string; description: string; url: string }) {
+export function webPageSchema(p: { type?: "WebPage" | "ContactPage" | "AboutPage" | "CollectionPage"; name: string; description: string; url: string }) {
   return {
     "@context": "https://schema.org",
     "@type": p.type ?? "WebPage",
@@ -103,6 +103,19 @@ export function webPageSchema(p: { type?: "WebPage" | "ContactPage" | "AboutPage
     description: p.description,
     isPartOf: { "@id": `${COMPANY.url}/#website` },
     about: { "@id": `${COMPANY.url}/#business` },
+  };
+}
+
+export function itemListSchema(items: { name: string; url: string }[]) {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    itemListElement: items.map((item, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      name: item.name,
+      url: item.url,
+    })),
   };
 }
 

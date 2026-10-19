@@ -24,7 +24,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className="text-white font-bold uppercase tracking-wider text-sm mb-4">Nos produits</h2>
+            <h2 className="text-white font-bold uppercase tracking-wider text-sm mb-4"><Link href="/produits" className="hover:underline">Nos produits</Link></h2>
             <ul className="space-y-2 text-sm">
               {PRODUCTS.map((p) => (
                 <li key={p.slug}><Link href={`/produits/${p.slug}`} className="hover:text-white">{p.navTitle}</Link></li>
