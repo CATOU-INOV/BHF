@@ -73,7 +73,7 @@ export default function SciageDebitSurListePage() {
             <li>Vous nous transmettez votre liste : sections, longueurs, quantités, essence</li>
             <li>Nous vous envoyons un devis gratuit</li>
             <li>Nous scions votre commande en 2 semaines environ, avec rabotage ou traitement si besoin</li>
-            <li>Vous l&apos;enlevez à la scierie, du lundi au jeudi de 7 h 30 à 16 h 30</li>
+            <li>Vous l&apos;enlevez à la scierie, du lundi au jeudi de 7 h 30 à 16 h 30, ou nous la livrons en camion groupé dans le Sud</li>
           </ul>
           <p>
             Pour les sections courantes, consultez aussi notre{" "}

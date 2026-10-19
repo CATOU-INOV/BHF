@@ -63,8 +63,9 @@ export default function ContactPage() {
           <p className="font-display text-3xl font-bold text-charbon-900 leading-tight mb-2">{COMPANY.hours.label}</p>
           <p className="text-charbon-700 mb-6">{COMPANY.hours.note}.</p>
           <p className="text-charbon-700 border-t border-sciure-200 pt-6">
-            Nous ne livrons pas : vos bois sont à retirer à la scierie, par vos soins ou par votre transporteur.
-            Pour les grandes longueurs (jusqu&apos;à 9,20 m), prévoyez un véhicule adapté.
+            Vos bois sont à retirer à la scierie, par vos soins ou par votre transporteur ; pour les grandes
+            longueurs (jusqu&apos;à 9,20 m), prévoyez un véhicule adapté. Dans le Sud, nous livrons en camion groupé
+            avec Pacap Bois.
           </p>
         </div>
         <div className="relative min-h-[320px]">

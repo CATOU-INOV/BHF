@@ -28,7 +28,7 @@ const FAQ = [
   },
   {
     q: "Livrez-vous les bois ronds sur chantier ?",
-    a: "Non, les bois ronds sont à enlever à la scierie, du lundi au jeudi de 7 h 30 à 16 h 30, par vos soins ou par votre transporteur. Pour les grandes longueurs, prévoyez un véhicule adapté.",
+    a: "Dans le Sud (13, 26, 30, 34, 83, 84), oui : votre commande est groupée avec les camions de notre groupe et vous ne payez que votre volume. Ailleurs, les bois ronds sont à enlever à la scierie, du lundi au jeudi de 7 h 30 à 16 h 30 ; pour les grandes longueurs, prévoyez un véhicule adapté.",
   },
 ];
 

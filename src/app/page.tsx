@@ -3,7 +3,7 @@ import Link from "next/link";
 import CtaBand from "@/components/CtaBand";
 import Faq from "@/components/Faq";
 import { ArrowIcon, CheckIcon, DownloadIcon } from "@/components/Icons";
-import { COMPANY, DOCUMENTS, ESSENCES, FAQ_HOME, PRODUCTS, ZONES, CITIES, PARTNER, SERVICES } from "@/lib/constants";
+import { COMPANY, DOCUMENTS, ESSENCES, FAQ_HOME, PRODUCTS, ZONES, SOUTH_ZONES, CITIES, PARTNER, SERVICES } from "@/lib/constants";
 import { faqSchema } from "@/lib/schema";
 
 const STATS = [
@@ -33,8 +33,8 @@ const STEPS = [
     alt: "Poutres de forte section rabotées 4 faces",
   },
   {
-    title: "Retrait à la scierie",
-    text: "Vous enlevez votre commande à Chalmazel, du lundi au jeudi de 7 h 30 à 16 h 30, par vos soins ou par votre transporteur.",
+    title: "Retrait ou livraison groupée",
+    text: "Retrait à Chalmazel du lundi au jeudi, 7 h 30 – 16 h 30. Dans le Sud, livraison groupée avec les camions de notre groupe.",
     image: "/images/chargement-bois-ronds-camion.jpg",
     alt: "Semi-remorque chargée de bois ronds fraisés sur le parc de la scierie",
   },
@@ -138,12 +138,12 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* DE LA FORÊT AU CHANTIER */}
+      {/* DES FORÊTS AU CHANTIER */}
       <section id="services" className="scroll-mt-24 bg-sciure-100 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4">
           <p className="text-ecorce-600 font-semibold uppercase tracking-widest text-sm mb-3">Nos services de scierie</p>
           <h2 className="text-4xl md:text-5xl font-bold uppercase text-foret-900 leading-none mb-14 max-w-3xl">
-            De la forêt du Haut Forez à votre chantier
+            Des forêts du Haut Forez à votre chantier
           </h2>
           <ol className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
             {STEPS.map((s, i) => (
@@ -165,6 +165,41 @@ export default function HomePage() {
                 {s.title} <ArrowIcon />
               </Link>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* LIVRAISON GROUPÉE SUD */}
+      <section id="livraison-sud" className="scroll-mt-24 bg-foret-900 bg-trait-scie text-white">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-2">
+          <div className="px-4 py-16 md:py-20 lg:pr-14">
+            <p className="text-foret-100 font-semibold uppercase tracking-widest text-sm mb-3">Livraison dans le Sud</p>
+            <h2 className="text-4xl md:text-5xl font-bold uppercase leading-none mb-6">
+              Pas besoin de remplir un camion
+            </h2>
+            <div className="space-y-4 text-sciure-100 leading-relaxed">
+              <p>
+                Nos camions descendent régulièrement chez{" "}
+                <a href={PARTNER.url} className="font-semibold text-white underline underline-offset-4">{PARTNER.name}</a>,
+                entreprise de notre groupe à {PARTNER.city}. Votre commande voyage avec eux, et nous complétons le
+                chargement avec les bois destinés à {PARTNER.name}.
+              </p>
+              <p className="font-display text-2xl md:text-3xl font-bold uppercase text-white leading-tight">
+                Vous commandez 15 m³ ? Vous ne payez que vos 15 m³.
+              </p>
+              <p>Un service que très peu de scieries peuvent proposer.</p>
+            </div>
+            <ul className="flex flex-wrap gap-2 mt-8">
+              {SOUTH_ZONES.map((z) => (
+                <li key={z.code} className="bg-white/10 border border-white/20 text-sm font-semibold px-3 py-1.5">{z.name} ({z.code})</li>
+              ))}
+            </ul>
+            <Link href="/devis" className="inline-block mt-8 bg-ecorce-600 hover:bg-ecorce-500 px-7 py-4 font-bold uppercase tracking-wide transition-colors">
+              Demander un devis livré
+            </Link>
+          </div>
+          <div className="relative min-h-[320px]">
+            <Image src="/images/chargement-semi-remorque.jpg" alt="Semi-remorque chargée de bois sciés et de bois ronds au départ de la scierie" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
           </div>
         </div>
       </section>
@@ -258,7 +293,8 @@ export default function HomePage() {
         <aside className="bg-sciure-100 p-8 self-start">
           <h2 className="text-3xl font-bold uppercase text-foret-900 mb-4">Retrait à la scierie</h2>
           <p className="text-charbon-700 mb-2">
-            Nous ne livrons pas : vos bois sont à enlever à Chalmazel, par vos soins ou par votre transporteur.
+            Dans la Loire et les départements voisins, vos bois sont à enlever à Chalmazel, par vos soins ou par
+            votre transporteur.
           </p>
           <p className="text-charbon-900 font-semibold mb-6">
             {COMPANY.hours.label}<br />
@@ -274,9 +310,9 @@ export default function HomePage() {
             Notamment : {CITIES.join(", ")}.
           </p>
           <p className="text-sm text-charbon-700 border-t border-sciure-200 mt-6 pt-6">
-            Dans le Sud-Est, nos bois sont aussi disponibles chez{" "}
-            <a href={PARTNER.url} className="font-semibold text-foret-700 underline underline-offset-4">{PARTNER.name}</a>,
-            entreprise de notre groupe à {PARTNER.city}.
+            Dans le Sud ({SOUTH_ZONES.map((z) => z.code).join(", ")}), nous livrons en groupant votre commande avec
+            les camions de {PARTNER.name} : vous ne payez que votre volume.{" "}
+            <a href="#livraison-sud" className="font-semibold text-foret-700 underline underline-offset-4">En savoir plus</a>
           </p>
         </aside>
       </section>

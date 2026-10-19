@@ -1,4 +1,6 @@
-import { COMPANY, ZONES } from "./constants";
+import { COMPANY, SOUTH_ZONES, ZONES } from "./constants";
+
+const areaServed = [...ZONES, ...SOUTH_ZONES].map((z) => ({ "@type": "AdministrativeArea", name: z.name }));
 
 const postalAddress = {
   "@type": "PostalAddress",
@@ -27,7 +29,7 @@ export function localBusinessSchema() {
       opens: COMPANY.hours.schema.opens,
       closes: COMPANY.hours.schema.closes,
     },
-    areaServed: ZONES.map((z) => ({ "@type": "AdministrativeArea", name: z.name })),
+    areaServed,
     description: COMPANY.description,
     logo: { "@type": "ImageObject", url: `${COMPANY.url}/images/logo-bhf.png` },
     image: `${COMPANY.url}/images/parc-stock-sciages.jpg`,
@@ -68,7 +70,7 @@ export function serviceSchema(p: { name: string; description: string; url: strin
     name: p.name,
     description: p.description,
     provider: { "@id": `${COMPANY.url}/#business` },
-    areaServed: ZONES.map((z) => ({ "@type": "AdministrativeArea", name: z.name })),
+    areaServed,
     url: p.url,
   };
 }

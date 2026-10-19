@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import Logo from "./Logo";
 import { ClockIcon, MailIcon, PhoneIcon, PinIcon } from "./Icons";
-import { COMPANY, DOCUMENTS, PRODUCTS, SERVICES, ZONES } from "@/lib/constants";
+import { COMPANY, DOCUMENTS, PRODUCTS, SERVICES, SOUTH_ZONES, ZONES } from "@/lib/constants";
 
 export default function Footer() {
   return (
@@ -37,11 +37,10 @@ export default function Footer() {
 
           <div>
             <h2 className="text-white font-bold uppercase tracking-wider text-sm mb-4">Départements desservis</h2>
-            <ul className="space-y-2 text-sm">
-              {ZONES.map((z) => (
-                <li key={z.code}>{z.name} ({z.code})</li>
-              ))}
-            </ul>
+            <p className="text-xs uppercase tracking-wider text-sciure-400 mb-1">Retrait à la scierie</p>
+            <p className="text-sm mb-3">{ZONES.map((z) => `${z.name} (${z.code})`).join(", ")}</p>
+            <p className="text-xs uppercase tracking-wider text-sciure-400 mb-1">Livraison groupée Sud</p>
+            <p className="text-sm">{SOUTH_ZONES.map((z) => `${z.name} (${z.code})`).join(", ")}</p>
             <a href={DOCUMENTS.catalogue.href} className="inline-block mt-5 text-sm text-white underline underline-offset-4 decoration-ecorce-500 hover:decoration-white">
               Télécharger le catalogue
             </a>

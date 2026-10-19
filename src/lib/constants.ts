@@ -57,7 +57,7 @@ export const ESSENCES = [
   },
   {
     name: "Mélèze",
-    text: "Le plus résistant de nos résineux en extérieur, dense et riche en résine.",
+    text: "Le plus résistant de nos résineux en extérieur, avec une teinte miel proche de celle du douglas.",
   },
   {
     name: "Sapin",
@@ -150,7 +150,7 @@ export const SERVICES = [
   },
 ] as const;
 
-/** Départements d'où viennent les clients (la scierie ne livre pas : retrait sur place) */
+/** Départements proches : retrait à la scierie (pas de livraison) */
 export const ZONES = [
   { name: "Loire", code: "42" },
   { name: "Allier", code: "03" },
@@ -158,6 +158,16 @@ export const ZONES = [
   { name: "Haute-Loire", code: "43" },
   { name: "Puy-de-Dôme", code: "63" },
   { name: "Rhône", code: "69" },
+] as const;
+
+/** Sud : livraison groupée avec les camions qui descendent chez Pacap Bois (le client ne paie que son volume) */
+export const SOUTH_ZONES = [
+  { name: "Bouches-du-Rhône", code: "13" },
+  { name: "Drôme", code: "26" },
+  { name: "Gard", code: "30" },
+  { name: "Hérault", code: "34" },
+  { name: "Var", code: "83" },
+  { name: "Vaucluse", code: "84" },
 ] as const;
 
 export const CLIENT_TYPES = ["Charpentiers", "Constructeurs bois", "Négoces", "Agriculteurs", "Particuliers"] as const;
@@ -174,7 +184,7 @@ export const CITIES = [
 export const FAQ_HOME = [
   {
     q: "Livrez-vous ?",
-    a: "Non, nous ne livrons pas. Les commandes sont à retirer à la scierie de Chalmazel, par vos soins ou par le transporteur de votre choix. Pour les grandes longueurs (jusqu'à 9,20 m), prévoyez un véhicule adapté.",
+    a: "Dans le Sud (Bouches-du-Rhône, Drôme, Gard, Hérault, Var, Vaucluse), oui : nous groupons votre commande avec les camions qui descendent chez Pacap Bois, entreprise de notre groupe. Pas besoin de remplir un camion : pour 15 m³, vous ne payez que vos 15 m³. Ailleurs, les commandes sont à retirer à la scierie, par vos soins ou par votre transporteur.",
   },
   {
     q: "Quels sont vos horaires d'enlèvement ?",

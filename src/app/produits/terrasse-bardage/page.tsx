@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Douglas ou mélèze pour une terrasse ?",
-    a: "Les deux sont naturellement durables et résistent bien aux intempéries sans traitement lourd. Le douglas offre une teinte rosée, le mélèze est plus dense et plus riche en résine. Tous deux grisent avec le temps s'ils ne sont pas saturés.",
+    a: "Les deux sont naturellement durables et résistent bien aux intempéries sans traitement lourd. Tous deux offrent une teinte chaude qui tire vers le miel ; le mélèze est le plus résistant de nos résineux en extérieur. Tous deux grisent avec le temps s'ils ne sont pas saturés.",
   },
   {
     q: "Quelles sont les dimensions de vos lames de terrasse ?",
@@ -22,7 +22,7 @@ const FAQ = [
   },
   {
     q: "Posez-vous les terrasses ?",
-    a: "Non, nous vendons uniquement les lames, le bardage et les lambourdes, à retirer à la scierie. La pose est à réaliser par vos soins ou par un artisan.",
+    a: "Non, nous vendons uniquement les lames, le bardage et les lambourdes, à retirer à la scierie ou livrés dans le Sud. La pose est à réaliser par vos soins ou par un artisan.",
   },
   {
     q: "Qu'est-ce qu'un bardage mi-bois ?",

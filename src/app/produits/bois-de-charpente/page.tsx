@@ -77,9 +77,10 @@ export default function BoisDeCharpentePage() {
             <Link href="/produits/bois-de-couverture" className="text-foret-700 font-semibold underline underline-offset-4">liteaux et voliges</Link>.
           </p>
           <p className="text-base bg-sciure-100 border-l-4 border-ecorce-600 p-5">
-            Vous êtes dans le Sud-Est ? Nos bois de charpente sont aussi disponibles chez{" "}
+            Vous êtes dans le Sud ? Nous livrons vos bois de charpente en les groupant avec les camions qui
+            descendent chez{" "}
             <a href={PARTNER.pages.charpente} className="text-foret-700 font-semibold underline underline-offset-4">{PARTNER.name}, à {PARTNER.city}</a>,
-            entreprise de notre groupe qui livre dans tout le Sud-Est.
+            entreprise de notre groupe : pas besoin de remplir un camion, vous ne payez que votre volume.
           </p>
         </>
       }
