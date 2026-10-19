@@ -54,7 +54,7 @@ function emailLayout(bodyHtml: string, preheader: string) {
           </td></tr>
           <tr><td style="padding:32px;">${bodyHtml}</td></tr>
           <tr><td style="background-color:${C.bg};padding:18px 32px;border-top:1px solid ${C.border};">
-            <p style="margin:0 0 4px;font-size:12px;color:${C.muted};">${COMPANY.name} — ${COMPANY.address.locality}, ${COMPANY.address.zip} ${COMPANY.address.city}</p>
+            <p style="margin:0 0 4px;font-size:12px;color:${C.muted};">${COMPANY.name} — ${COMPANY.address.street}, ${COMPANY.address.zip} ${COMPANY.address.city}</p>
             <p style="margin:0;font-size:12px;color:${C.muted};">
               <a href="${COMPANY.url}" style="color:${C.foret};text-decoration:none;">bois-du-haut-forez.fr</a>
               &nbsp;·&nbsp; ${COMPANY.phone} &nbsp;·&nbsp; ${COMPANY.email}

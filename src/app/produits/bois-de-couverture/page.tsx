@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Liteaux, voliges, planches et lambourdes en sapin/épicéa ou douglas des Monts du Forez, en 3 ou 4 m. Scierie Bois du Haut Forez à Chalmazel (Loire), devis gratuit.",
   alternates: { canonical: "/produits/bois-de-couverture" },
-  openGraph: { images: [{ url: "/images/bois-ossature-rabote.jpg" }] },
+  openGraph: { images: [{ url: "/images/stock-planches-sciees.jpg" }] },
 };
 
 const FAQ = [
@@ -35,7 +35,7 @@ export default function BoisDeCouverturePage() {
       slug="bois-de-couverture"
       h1="Bois de couverture et planches"
       intro="Liteaux, voliges, planches et lambourdes en sapin/épicéa ou douglas, sciés à Chalmazel dans les bois des Monts du Forez. En 3 ou 4 m, et jusqu'à 5 m pour les voliges."
-      heroImage={{ src: "/images/bois-ossature-rabote.jpg", alt: "Bois sciés et rabotés empilés à la scierie" }}
+      heroImage={{ src: "/images/stock-planches-sciees.jpg", alt: "Piles de planches sciées sur le parc de la scierie" }}
       facts={[
         { label: "Liteaux", value: "20×40 · 27×40" },
         { label: "Voliges", value: "15 mm, toutes largeurs" },
@@ -77,11 +77,11 @@ export default function BoisDeCouverturePage() {
         note: "Source : catalogue Bois du Haut Forez 2025. Sapin/épicéa ou douglas.",
       }}
       gallery={[
+        { src: "/images/parc-stock-sciages.jpg", alt: "Parc de stockage des bois sciés de la scierie" },
+        { src: "/images/planches-douglas-bout.jpg", alt: "Bouts de planches de douglas empilées" },
         { src: "/images/bois-charpente-stock.jpg", alt: "Piles de bois sciés devant le hangar de la scierie" },
-        { src: "/images/bois-ossature.jpg", alt: "Bois sciés empilés" },
         { src: "/images/debit-standard-stock.jpg", alt: "Stock de bois en débit standard" },
-        { src: "/images/bois-bout-cernes.jpg", alt: "Cernes de croissance visibles en bout de bois" },
-        { src: "/images/bois-veinage.jpg", alt: "Veinage d'une planche de résineux" },
+        { src: "/images/texture-bois-bout.jpg", alt: "Cernes de croissance visibles en bout de bois" },
       ]}
       faq={FAQ}
     />

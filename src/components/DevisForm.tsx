@@ -132,7 +132,7 @@ export default function DevisForm() {
         <label htmlFor="message" className={label}>Votre liste de bois ou votre projet *</label>
         <textarea
           id="message" name="message" rows={7} required maxLength={5000}
-          placeholder={"Exemple :\n10 chevrons 60×80 en 4 m\n4 pannes 100×220 en 6 m\nDouglas, traité classe 2, livraison souhaitée"}
+          placeholder={"Exemple :\n10 chevrons 60×80 en 4 m\n4 pannes 100×220 en 6 m\nDouglas, traité classe 2, enlèvement semaine 12"}
           className={`${input} resize-y`}
         />
         <p className="text-xs text-charbon-500 mt-1.5">

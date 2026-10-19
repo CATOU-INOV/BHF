@@ -4,21 +4,25 @@ import ProductPageLayout from "@/components/ProductPageLayout";
 import { PARTNER } from "@/lib/constants";
 
 export const metadata: Metadata = {
-  title: "Lames de terrasse et bardage en douglas local",
+  title: "Lames de terrasse douglas et mélèze, bardage douglas local",
   description:
-    "Lames de terrasse 28×145 bords arrondis et bardage mi-bois 22×135 ou 22×180 en douglas des Monts du Forez, en 3 ou 4 m. Scierie Bois du Haut Forez à Chalmazel (Loire).",
+    "Lames de terrasse 28×145 bords arrondis en douglas ou mélèze et bardage mi-bois 22×135 ou 22×180 en douglas des Monts du Forez, en 3 ou 4 m. Scierie Bois du Haut Forez à Chalmazel (Loire).",
   alternates: { canonical: "/produits/terrasse-bardage" },
-  openGraph: { images: [{ url: "/images/lames-terrasse-douglas.jpg" }] },
+  openGraph: { images: [{ url: "/images/lames-terrasse.jpg" }] },
 };
 
 const FAQ = [
   {
-    q: "Pourquoi choisir le douglas pour une terrasse ?",
-    a: "Le cœur du douglas est naturellement durable : il résiste bien aux intempéries sans traitement lourd. C'est l'un des meilleurs résineux français pour un usage extérieur, avec une belle teinte rosée qui grise avec le temps.",
+    q: "Douglas ou mélèze pour une terrasse ?",
+    a: "Les deux sont naturellement durables et résistent bien aux intempéries sans traitement lourd. Le douglas offre une teinte rosée, le mélèze est plus dense et plus riche en résine. Tous deux grisent avec le temps s'ils ne sont pas saturés.",
   },
   {
     q: "Quelles sont les dimensions de vos lames de terrasse ?",
     a: "Nos lames font 28×145 mm, avec bords arrondis et deux faces lisses, en longueurs de 3 ou 4 m.",
+  },
+  {
+    q: "Posez-vous les terrasses ?",
+    a: "Non, nous vendons uniquement les lames, le bardage et les lambourdes, à retirer à la scierie. La pose est à réaliser par vos soins ou par un artisan.",
   },
   {
     q: "Qu'est-ce qu'un bardage mi-bois ?",
@@ -38,21 +42,21 @@ export default function TerrasseBardagePage() {
   return (
     <ProductPageLayout
       slug="terrasse-bardage"
-      h1="Lames de terrasse et bardage douglas"
-      intro="Des aménagements extérieurs en douglas des Monts du Forez : lames de terrasse bords arrondis et bardage mi-bois, sciés et usinés à Chalmazel."
-      heroImage={{ src: "/images/lames-terrasse-douglas.jpg", alt: "Lames de terrasse en douglas empilées à la scierie" }}
+      h1="Lames de terrasse et bardage"
+      intro="Des aménagements extérieurs en résineux des Monts du Forez : lames de terrasse bords arrondis en douglas ou mélèze, bardage mi-bois en douglas, sciés et usinés à Chalmazel."
+      heroImage={{ src: "/images/lames-terrasse.jpg", alt: "Lames de terrasse en résineux local, faces lisses" }}
       facts={[
         { label: "Lames de terrasse", value: "28×145 mm" },
         { label: "Bardage mi-bois", value: "22×135 · 22×180" },
         { label: "Longueurs", value: "3 ou 4 m" },
-        { label: "Essence", value: "Douglas local" },
+        { label: "Essences", value: "Douglas, mélèze" },
       ]}
       body={
         <>
           <h2>Une terrasse en bois français</h2>
           <p>
             Nos lames de terrasse ont des bords arrondis et deux faces lisses, pour un confort sous les pieds
-            et une pose facile. Elles sont sciées dans le douglas des forêts voisines de la scierie :
+            et une pose facile. Elles sont sciées dans le douglas ou le mélèze des forêts voisines de la scierie :
             une alternative locale aux bois importés, avec un bilan carbone réduit.
           </p>
           <p>
@@ -72,7 +76,7 @@ export default function TerrasseBardagePage() {
         </>
       }
       highlights={[
-        "Douglas local, naturellement durable",
+        "Douglas et mélèze locaux, naturellement durables",
         "Lames bords arrondis, 2 faces lisses",
         "Bardage mi-bois en 2 largeurs",
         "Lambourdes assorties disponibles",
@@ -81,18 +85,18 @@ export default function TerrasseBardagePage() {
         caption: "Dimensions disponibles",
         columns: ["Produit", "Profil", "Section (mm)", "Longueurs"],
         rows: [
-          ["Lames de terrasse", "Bords arrondis, 2 faces lisses", "28×145", "3 ou 4 m"],
-          ["Bardage", "Mi-bois", "22×135 · 22×180", "3 ou 4 m"],
+          ["Lames de terrasse (douglas, mélèze)", "Bords arrondis, 2 faces lisses", "28×145", "3 ou 4 m"],
+          ["Bardage (douglas)", "Mi-bois", "22×135 · 22×180", "3 ou 4 m"],
           ["Lambourdes", "Brut", "60×40 · 50×70", "3 ou 4 m"],
         ],
-        note: "Source : catalogue Bois du Haut Forez 2025.",
+        note: "Source : catalogue Bois du Haut Forez 2025. Vente uniquement, sans pose.",
       }}
       gallery={[
-        { src: "/images/abri-voiture-douglas.jpg", alt: "Abri voiture en douglas" },
+        { src: "/images/lames-terrasse-douglas.jpg", alt: "Lames de terrasse en douglas empilées à la scierie" },
         { src: "/images/bardage-mi-bois.jpg", alt: "Profil de lames de bardage mi-bois" },
-        { src: "/images/abri-douglas.jpg", alt: "Structure d'abri en douglas" },
+        { src: "/images/abri-voiture-douglas.jpg", alt: "Abri voiture en douglas" },
+        { src: "/images/planches-douglas-bout.jpg", alt: "Bouts de planches de douglas empilées" },
         { src: "/images/bois-veinage.jpg", alt: "Veinage du douglas" },
-        { src: "/images/bois-bout-cernes.jpg", alt: "Cernes du douglas en bout de pièce" },
       ]}
       faq={FAQ}
       cta={{

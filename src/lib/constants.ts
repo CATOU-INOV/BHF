@@ -1,7 +1,7 @@
 /**
  * Source de vérité unique du site.
- * Les valeurs marquées « À CONFIRMER » sont en attente du questionnaire (questionnaire-bhf.csv) :
- * site actuel et catalogue 2025 se contredisent sur ces points.
+ * Données confirmées par le questionnaire rempli par l'entreprise (Tableau.csv, octobre 2026).
+ * Les valeurs encore marquées « À CONFIRMER » / « À COMPLÉTER » restent à vérifier sur le Kbis.
  */
 
 export const COMPANY = {
@@ -9,12 +9,15 @@ export const COMPANY = {
   shortName: "BHF",
   description:
     "Scierie de résineux locaux à Chalmazel, au cœur des Monts du Forez (Loire). Bois de charpente, d'ossature et de couverture, bois ronds fraisés, lames de terrasse et bardage en douglas, épicéa, mélèze et sapin.",
-  foundingYear: 1956, // À CONFIRMER — catalogue 2025 : 1956 / site actuel : « 40 ans »
-  employees: 9, // catalogue 2025
-  annualVolumeM3: 5000, // catalogue 2025
+  foundingYear: 1956,
+  employees: 9,
+  annualVolumeM3: 5000,
+  regularClients: 50, // ordre de grandeur
+  supplyRadiusKm: 80, // rayon maximum d'approvisionnement en grumes
+  maxSection: "420 × 420 mm",
+  listLeadTime: "environ 2 semaines", // débit sur liste, selon le volume
   address: {
-    // À CONFIRMER — adresse du catalogue 2025, plus complète que celle du site actuel
-    locality: "Le Pont de Chevelière",
+    // Adresse de la fiche Google Business Profile
     street: "75 chemin du Chatelard",
     zip: "42920",
     city: "Chalmazel-Jeansagnière",
@@ -24,9 +27,14 @@ export const COMPANY = {
   },
   phone: "04 77 24 86 07",
   phoneRaw: "+33477248607",
-  email: "bhf42@outlook.fr", // À CONFIRMER — catalogue 2025 : boisduhautforez@outlook.fr
+  email: "boisduhautforez@outlook.fr",
   url: "https://www.bois-du-haut-forez.fr",
-  // Horaires et coordonnées GPS : à compléter (questionnaire) — volontairement absents du schema tant qu'ils ne sont pas confirmés
+  hours: {
+    label: "Du lundi au jeudi, 7 h 30 – 16 h 30",
+    note: "Vendredi : nous consulter",
+    schema: { days: ["Monday", "Tuesday", "Wednesday", "Thursday"], opens: "07:30", closes: "16:30" },
+  },
+  pefc: { licence: "10-31-735", logo: "/images/logo-pefc.png", url: "https://www.pefc-france.org" },
 } as const;
 
 export const DOCUMENTS = {
@@ -82,8 +90,8 @@ export const PRODUCTS: Product[] = [
     navTitle: "Bois ronds fraisés",
     tagline: "Notre spécialité",
     description:
-      "Rondins fraisés au diamètre constant pour la charpente, de Ø 14 à 33 cm et jusqu'à 9,20 m, en sapin, douglas ou mélèze.",
-    image: "/images/bois-ronds-stock.jpg",
+      "Rondins fraisés au diamètre constant pour la charpente, les abris et les clôtures, de Ø 14 à 33 cm et jusqu'à 9,20 m, en sapin, douglas ou mélèze.",
+    image: "/images/bois-ronds-fraises-stock.jpg",
     imageAlt: "Stock de bois ronds fraisés sur le parc de la scierie Bois du Haut Forez",
     featured: true,
   },
@@ -93,9 +101,9 @@ export const PRODUCTS: Product[] = [
     navTitle: "Charpente et ossature",
     tagline: "Structure C18",
     description:
-      "Chevrons, solives, poteaux et pannes classés C18, de 3 à 9,20 m. Débit standard en stock ou sur liste.",
-    image: "/images/debit-standard-stock.jpg",
-    imageAlt: "Stock de bois de charpente en débit standard sur le parc de la scierie",
+      "Chevrons, solives, poteaux, pannes et bois d'ossature classés C18, de 3 à 9,20 m. Débit standard en stock ou sur liste.",
+    image: "/images/bois-charpente-grande-longueur.jpg",
+    imageAlt: "Bois de charpente de grande longueur empilés sur le parc de la scierie",
   },
   {
     slug: "bois-de-couverture",
@@ -104,8 +112,8 @@ export const PRODUCTS: Product[] = [
     tagline: "Liteaux, voliges, planches",
     description:
       "Liteaux, voliges, planches et lambourdes en sapin/épicéa ou douglas, en 3 ou 4 m.",
-    image: "/images/bois-ossature-rabote.jpg",
-    imageAlt: "Bois sciés et rabotés empilés",
+    image: "/images/stock-planches-sciees.jpg",
+    imageAlt: "Piles de planches sciées sur le parc de la scierie",
   },
   {
     slug: "terrasse-bardage",
@@ -113,9 +121,9 @@ export const PRODUCTS: Product[] = [
     navTitle: "Terrasse et bardage",
     tagline: "Aménagements extérieurs",
     description:
-      "Lames de terrasse 28×145 bords arrondis et bardage mi-bois en douglas local.",
-    image: "/images/lames-terrasse-douglas.jpg",
-    imageAlt: "Lames de terrasse en douglas empilées",
+      "Lames de terrasse 28×145 bords arrondis en douglas ou mélèze, et bardage mi-bois en douglas local.",
+    image: "/images/lames-terrasse.jpg",
+    imageAlt: "Lames de terrasse en résineux local, faces lisses",
   },
 ];
 
@@ -124,11 +132,11 @@ export const SERVICES = [
     slug: "sciage-debit-sur-liste",
     title: "Sciage et débit sur liste",
     tagline: "Sur mesure",
-    text: "Sciage de grumes et billons de 3 à 9,20 m, aux sections de votre liste.",
+    text: "Sciage de 3 à 9,20 m et jusqu'à 420 × 420 mm, aux sections de votre liste, sans minimum.",
     description:
       "Sciage de résineux locaux aux sections et longueurs de votre liste, de 3 à 9,20 m : charpente, ossature, couverture, aménagements.",
     image: "/images/debit-sur-liste.jpg",
-    imageAlt: "Commande de bois débités sur liste, prête à partir",
+    imageAlt: "Commande de bois débités sur liste, prête à être enlevée",
   },
   {
     slug: "rabotage-traitement",
@@ -137,18 +145,25 @@ export const SERVICES = [
     text: "Rabotage selon vos cotes et traitement préventif classe 2 pour la charpente.",
     description:
       "Rabotage des bois selon vos cotes et traitement préventif classe 2 contre les insectes et champignons, pour la charpente et l'ossature.",
-    image: "/images/bois-ossature-rabote.jpg",
-    imageAlt: "Bois d'ossature séchés et rabotés",
+    image: "/images/poutres-rabotees.jpg",
+    imageAlt: "Poutres de forte section rabotées 4 faces",
   },
 ] as const;
 
-/** Zones provisoires — à affiner avec l'analyse SEO (backlinks, Search Console) */
+/** Départements d'où viennent les clients (la scierie ne livre pas : retrait sur place) */
 export const ZONES = [
   { name: "Loire", code: "42" },
+  { name: "Allier", code: "03" },
+  { name: "Ardèche", code: "07" },
   { name: "Haute-Loire", code: "43" },
   { name: "Puy-de-Dôme", code: "63" },
   { name: "Rhône", code: "69" },
 ] as const;
+
+export const CLIENT_TYPES = ["Charpentiers", "Constructeurs bois", "Négoces", "Agriculteurs", "Particuliers"] as const;
+
+/** Produits connexes du sciage */
+export const BY_PRODUCTS = ["Plaquettes", "Sciure", "Écorces"] as const;
 
 /** Communes citées sur le site actuel — servira aux pages zones */
 export const CITIES = [
@@ -156,31 +171,38 @@ export const CITIES = [
   "Saint-Chamond", "Rive-de-Gier", "Firminy", "Ambert", "Monistrol-sur-Loire", "Tarare",
 ] as const;
 
-// À CONFIRMER : vente aux particuliers et retrait à la scierie (questionnaire)
 export const FAQ_HOME = [
   {
-    q: "Quelles essences de bois sciez-vous ?",
-    a: "Uniquement des résineux locaux des Monts du Forez : douglas, épicéa, mélèze et sapin. Toutes les essences sont disponibles en sections standard ou sur liste.",
+    q: "Livrez-vous ?",
+    a: "Non, nous ne livrons pas. Les commandes sont à retirer à la scierie de Chalmazel, par vos soins ou par le transporteur de votre choix. Pour les grandes longueurs (jusqu'à 9,20 m), prévoyez un véhicule adapté.",
+  },
+  {
+    q: "Quels sont vos horaires d'enlèvement ?",
+    a: "Du lundi au jeudi, de 7 h 30 à 16 h 30. Pour un enlèvement le vendredi, appelez-nous avant de venir.",
+  },
+  {
+    q: "Quels sont vos délais ?",
+    a: "Les sections de notre catalogue sont disponibles en stock. Pour un débit sur liste, comptez environ 2 semaines, selon le volume de la commande.",
+  },
+  {
+    q: "Sapin, douglas ou mélèze : que choisir ?",
+    a: "Le sapin et l'épicéa sont la référence pour la charpente et l'ossature abritées. Le douglas et le mélèze, naturellement plus durables, sont conseillés à l'extérieur : terrasse, bardage, abris. Nous vous conseillons selon votre projet.",
+  },
+  {
+    q: "Le bois est-il sec ?",
+    a: "Nos bois sont sciés verts ou ressuyés : nous ne pratiquons pas de séchage artificiel. Ils sont adaptés à la charpente traditionnelle ; dites-nous l'usage prévu, nous vous orienterons.",
   },
   {
     q: "Vendez-vous aux particuliers ?",
-    a: "Oui. Nous travaillons avec les charpentiers et constructeurs bois comme avec les particuliers qui construisent un abri, un carport ou une terrasse.",
+    a: "Oui. Nos clients sont surtout des professionnels (charpentiers, constructeurs bois, négoces, agriculteurs), mais nous servons aussi les particuliers, sans minimum de commande.",
   },
   {
-    q: "Quelles longueurs pouvez-vous scier ?",
-    a: "Nous scions et fraisons des pièces de 3 m à 9,20 m de long. Les bois ronds fraisés vont de 14 à 33 cm de diamètre.",
+    q: "Quelles dimensions pouvez-vous scier ?",
+    a: "Des pièces de 3 à 9,20 m de long, jusqu'à 420 × 420 mm de section. Les bois ronds fraisés vont de 14 à 33 cm de diamètre.",
   },
   {
-    q: "Vos bois de charpente sont-ils certifiés ?",
-    a: "Oui. La scierie est certifiée PEFC et nos bois à section rectangulaire portent le marquage CE, avec des déclarations de performance de C18 à C30.",
-  },
-  {
-    q: "Qu'est-ce que le traitement classe 2 ?",
-    a: "C'est un traitement préventif contre les insectes et les champignons, recommandé pour les bois de charpente abrités mais pouvant être ponctuellement humidifiés.",
-  },
-  {
-    q: "Livrez-vous ?",
-    a: "Oui, par camion avec ou sans déchargement, dans la Loire et les départements voisins. Vous pouvez aussi venir chercher votre commande à la scierie.",
+    q: "Vos bois sont-ils certifiés ?",
+    a: "Oui. La scierie est certifiée PEFC (n° 10-31-735) et nos bois à section rectangulaire portent le marquage CE, avec des déclarations de performance de C18 à C30.",
   },
 ] as const;
 
@@ -200,7 +222,7 @@ export const PARTNER = {
 export const LEGAL = {
   legalName: "BOIS DU HAUT FOREZ",
   form: "Société à responsabilité limitée (SARL)",
-  capital: null as string | null, // À COMPLÉTER — Kbis
+  capital: "250 000 €" as string | null,
   siren: "438 859 431",
   siret: "438 859 431 00019",
   rcs: "RCS Saint-Étienne 438 859 431", // À CONFIRMER — greffe compétent (Kbis)

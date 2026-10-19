@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description:
     "Bois ronds fraisés en sapin, douglas ou mélèze des Monts du Forez : Ø 14 à 33 cm, de 3 à 9,20 m, bruts ou traités classe 2. Scierie à Chalmazel (Loire), devis gratuit.",
   alternates: { canonical: "/produits/bois-ronds-fraises" },
-  openGraph: { images: [{ url: "/images/bois-rond-fraise.jpg" }] },
+  openGraph: { images: [{ url: "/images/bois-ronds-fraises-stock.jpg" }] },
 };
 
 const FAQ = [
@@ -24,11 +24,11 @@ const FAQ = [
   },
   {
     q: "Vos bois ronds sont-ils traités ?",
-    a: "Nous les livrons bruts ou traités, selon votre usage. Le traitement préventif classe 2 protège la charpente contre les insectes et les champignons.",
+    a: "Nous les proposons bruts ou traités, selon votre usage. Le traitement préventif classe 2 protège la charpente contre les insectes et les champignons.",
   },
   {
     q: "Livrez-vous les bois ronds sur chantier ?",
-    a: "Oui, par camion avec ou sans déchargement, dans la Loire et les départements voisins.",
+    a: "Non, les bois ronds sont à enlever à la scierie, du lundi au jeudi de 7 h 30 à 16 h 30, par vos soins ou par votre transporteur. Pour les grandes longueurs, prévoyez un véhicule adapté.",
   },
 ];
 
@@ -37,8 +37,8 @@ export default function BoisRondsFraisesPage() {
     <ProductPageLayout
       slug="bois-ronds-fraises"
       h1="Bois ronds fraisés pour la charpente"
-      intro="Notre spécialité : des rondins en sapin, douglas ou mélèze des Monts du Forez, fraisés au diamètre constant pour des charpentes apparentes, abris et préaux."
-      heroImage={{ src: "/images/bois-ronds-stock.jpg", alt: "Stock de bois ronds fraisés sur le parc de la scierie Bois du Haut Forez" }}
+      intro="Notre spécialité : des rondins en sapin, douglas ou mélèze des Monts du Forez, fraisés au diamètre constant pour les charpentes, abris, clôtures et travaux de bricolage."
+      heroImage={{ src: "/images/bois-ronds-fraises-stock.jpg", alt: "Stock de bois ronds fraisés sur le parc de la scierie Bois du Haut Forez" }}
       facts={[
         { label: "Diamètres", value: "Ø 14 à 33 cm" },
         { label: "Longueurs", value: "3 à 9,20 m" },
@@ -64,6 +64,7 @@ export default function BoisRondsFraisesPage() {
             <li>Charpentes apparentes de maisons, granges et chalets</li>
             <li>Abris, carports et préaux</li>
             <li>Pergolas, kiosques et structures d&apos;extérieur</li>
+            <li>Clôtures, poteaux et travaux de bricolage</li>
             <li>Poteaux et pannes de grande longueur, jusqu&apos;à 9,20 m</li>
           </ul>
         </>
@@ -86,11 +87,11 @@ export default function BoisRondsFraisesPage() {
         note: "Source : catalogue Bois du Haut Forez 2025. Autres dimensions : nous consulter.",
       }}
       gallery={[
+        { src: "/images/bois-ronds-fraises-parc.jpg", alt: "Piles de bois ronds fraisés sur le parc de la scierie" },
         { src: "/images/bois-ronds-fraiseuse.jpg", alt: "Fraiseuse à bois ronds en fonctionnement" },
-        { src: "/images/bois-rond-fraise.jpg", alt: "Extrémité d'un bois rond fraisé" },
+        { src: "/images/bois-ronds-fraises-commande.jpg", alt: "Commande de bois ronds fraisés aux extrémités marquées, prête à être enlevée" },
         { src: "/images/charpente-bois-ronds.jpg", alt: "Charpente intérieure en bois ronds fraisés" },
-        { src: "/images/camion-bois-ronds.jpg", alt: "Camion chargé de bois ronds pour une livraison" },
-        { src: "/images/abri-douglas.jpg", alt: "Abri voiture à charpente en douglas" },
+        { src: "/images/chargement-bois-ronds-camion.jpg", alt: "Bois ronds fraisés chargés sur la semi-remorque d'un client" },
       ]}
       faq={FAQ}
       cta={{

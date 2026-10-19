@@ -1,7 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import Logo from "./Logo";
-import { MailIcon, PhoneIcon, PinIcon } from "./Icons";
+import { ClockIcon, MailIcon, PhoneIcon, PinIcon } from "./Icons";
 import { COMPANY, DOCUMENTS, PRODUCTS, SERVICES, ZONES } from "@/lib/constants";
 
 export default function Footer() {
@@ -36,7 +36,7 @@ export default function Footer() {
           </div>
 
           <div>
-            <h2 className="text-white font-bold uppercase tracking-wider text-sm mb-4">Zones de livraison</h2>
+            <h2 className="text-white font-bold uppercase tracking-wider text-sm mb-4">Départements desservis</h2>
             <ul className="space-y-2 text-sm">
               {ZONES.map((z) => (
                 <li key={z.code}>{z.name} ({z.code})</li>
@@ -53,7 +53,6 @@ export default function Footer() {
               <p className="flex gap-2">
                 <PinIcon className="w-4 h-4 mt-0.5 shrink-0 text-foret-500" />
                 <span>
-                  {COMPANY.address.locality}<br />
                   {COMPANY.address.street}<br />
                   {COMPANY.address.zip} {COMPANY.address.city}
                 </span>
@@ -64,16 +63,26 @@ export default function Footer() {
               </p>
               <p className="flex gap-2 items-center">
                 <MailIcon className="w-4 h-4 shrink-0 text-foret-500" />
-                <a href={`mailto:${COMPANY.email}`} className="hover:text-white">{COMPANY.email}</a>
+                <a href={`mailto:${COMPANY.email}`} className="hover:text-white break-all">{COMPANY.email}</a>
+              </p>
+              <p className="flex gap-2">
+                <ClockIcon className="w-4 h-4 mt-0.5 shrink-0 text-foret-500" />
+                <span>{COMPANY.hours.label}<br /><span className="text-sciure-400">{COMPANY.hours.note}</span></span>
               </p>
             </address>
           </div>
         </div>
 
         <div className="border-t border-foret-800 pt-6 flex flex-col md:flex-row gap-6 md:items-center justify-between text-xs text-sciure-400">
-          <div className="flex items-center gap-3">
-            <Image src="/images/logo-region-auvergne-rhone-alpes.png" alt="Région Auvergne-Rhône-Alpes" width={44} height={44} className="bg-white rounded-full p-0.5" />
-            <span>Avec le soutien de la Région Auvergne-Rhône-Alpes</span>
+          <div className="flex flex-wrap items-center gap-x-6 gap-y-3">
+            <div className="flex items-center gap-3">
+              <Image src="/images/logo-region-auvergne-rhone-alpes.png" alt="Région Auvergne-Rhône-Alpes" width={44} height={44} className="bg-white rounded-full p-0.5" />
+              <span>Avec le soutien de la Région Auvergne-Rhône-Alpes</span>
+            </div>
+            <a href={COMPANY.pefc.url} className="flex items-center gap-3 hover:text-white">
+              <Image src={COMPANY.pefc.logo} alt={`PEFC ${COMPANY.pefc.licence}`} width={32} height={61} className="bg-white rounded-sm" />
+              <span>Certifié PEFC · {COMPANY.pefc.licence}</span>
+            </a>
           </div>
           <div className="flex flex-wrap gap-x-5 gap-y-2">
             <span>© {new Date().getFullYear()} {COMPANY.name}</span>

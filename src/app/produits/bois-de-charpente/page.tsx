@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     "Bois de charpente classé C18 en sapin/épicéa, douglas ou mélèze des Monts du Forez : chevrons, solives, poteaux et pannes de 3 à 9,20 m. Marquage CE, PEFC. Scierie à Chalmazel (Loire).",
   alternates: { canonical: "/produits/bois-de-charpente" },
-  openGraph: { images: [{ url: "/images/debit-standard-stock.jpg" }] },
+  openGraph: { images: [{ url: "/images/bois-charpente-grande-longueur.jpg" }] },
 };
 
 const FAQ = [
@@ -29,8 +29,12 @@ const FAQ = [
     a: "Pour une charpente, le traitement préventif classe 2 est recommandé : il protège contre les insectes et les champignons lorsque le bois peut être occasionnellement humidifié. Nous le réalisons sur demande.",
   },
   {
-    q: "Proposez-vous du bois raboté pour l'ossature ?",
-    a: "Oui, nous rabotons les bois selon vos cotes, notamment pour l'ossature bois et les charpentes apparentes.",
+    q: "Proposez-vous du bois pour l'ossature bois (MOB) ?",
+    a: "Oui, en plusieurs sections standard, bruts ou rabotés selon vos cotes. Nous scions aussi l'ossature sur liste.",
+  },
+  {
+    q: "Vos bois de charpente sont-ils secs ?",
+    a: "Nous les scions verts ou ressuyés, sans séchage artificiel, comme en charpente traditionnelle. Précisez-nous l'usage prévu lors de votre demande de devis.",
   },
 ];
 
@@ -40,7 +44,7 @@ export default function BoisDeCharpentePage() {
       slug="bois-de-charpente"
       h1="Bois de charpente et d'ossature"
       intro="Chevrons, solives, poteaux et pannes classés C18, sciés à Chalmazel dans le sapin, l'épicéa, le douglas et le mélèze des Monts du Forez. En débit standard ou sur liste, de 3 à 9,20 m."
-      heroImage={{ src: "/images/debit-standard-stock.jpg", alt: "Piles de bois de charpente en débit standard sur le parc de la scierie" }}
+      heroImage={{ src: "/images/bois-charpente-grande-longueur.jpg", alt: "Bois de charpente de grande longueur empilés sur le parc de la scierie" }}
       facts={[
         { label: "Classement", value: "C18 · marquage CE" },
         { label: "Longueurs", value: "3 à 9,20 m" },
@@ -53,7 +57,7 @@ export default function BoisDeCharpentePage() {
           <p>
             Nos bois de charpente proviennent des forêts qui entourent la scierie. Nous les scions en sections
             standard pour les besoins courants, ou sur liste pour coller exactement à votre chantier : vous
-            évitez les chutes et les recoupes.
+            évitez les chutes et les recoupes. Sur liste, nous scions des sections jusqu&apos;à 420 × 420 mm.
           </p>
           <p>
             Les bois à section rectangulaire portent le marquage CE et sont classés C18. Les déclarations de
@@ -83,7 +87,7 @@ export default function BoisDeCharpentePage() {
         "Bois classé C18 avec marquage CE",
         "Déclarations de performance C18 à C30",
         "Grandes longueurs jusqu'à 9,20 m",
-        "Débit sur liste à vos sections",
+        "Sections jusqu'à 420 × 420 mm sur liste",
         "Rabotage et traitement classe 2 sur demande",
       ]}
       specs={{
@@ -98,10 +102,10 @@ export default function BoisDeCharpentePage() {
         note: "Source : catalogue Bois du Haut Forez 2025. Sapin/épicéa, douglas ou mélèze. Autres sections disponibles sur demande.",
       }}
       gallery={[
-        { src: "/images/bois-charpente-stock.jpg", alt: "Bois de charpente empilés devant le hangar de la scierie" },
-        { src: "/images/bois-ossature.jpg", alt: "Bois d'ossature empilés" },
-        { src: "/images/bois-ossature-rabote.jpg", alt: "Bois d'ossature séchés et rabotés" },
-        { src: "/images/debit-sur-liste.jpg", alt: "Commande de bois débités sur liste, prête à partir" },
+        { src: "/images/debit-standard-stock.jpg", alt: "Piles de bois de charpente en débit standard sur le parc de la scierie" },
+        { src: "/images/poutres-rabotees.jpg", alt: "Poutres de forte section rabotées 4 faces" },
+        { src: "/images/debit-sur-liste.jpg", alt: "Commande de bois débités sur liste, prête à être enlevée" },
+        { src: "/images/parc-stock-sciages.jpg", alt: "Parc de stockage des bois sciés" },
         { src: "/images/abri-voiture-douglas.jpg", alt: "Charpente d'abri voiture en douglas" },
       ]}
       faq={FAQ}

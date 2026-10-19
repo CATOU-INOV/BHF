@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     siteName: COMPANY.name,
-    images: [{ url: "/images/scierie-parc-grumes.jpg", alt: "Parc à grumes de la scierie Bois du Haut Forez à Chalmazel" }],
+    images: [{ url: "/images/parc-stock-sciages.jpg", alt: "Parc de stockage des bois sciés de la scierie Bois du Haut Forez à Chalmazel" }],
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
   alternates: { canonical: "/" },

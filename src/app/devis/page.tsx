@@ -46,7 +46,7 @@ export default function DevisPage() {
                 "Les quantités",
                 "L'essence : douglas, épicéa, mélèze ou sapin",
                 "Les options : raboté, traité classe 2",
-                "Le lieu de livraison",
+                "La date d'enlèvement souhaitée à la scierie",
               ].map((t) => (
                 <li key={t} className="flex gap-3"><CheckIcon className="w-5 h-5 shrink-0 text-foret-600 mt-0.5" />{t}</li>
               ))}

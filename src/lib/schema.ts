@@ -2,7 +2,7 @@ import { COMPANY, ZONES } from "./constants";
 
 const postalAddress = {
   "@type": "PostalAddress",
-  streetAddress: `${COMPANY.address.street}, ${COMPANY.address.locality}`,
+  streetAddress: COMPANY.address.street,
   postalCode: COMPANY.address.zip,
   addressLocality: COMPANY.address.city,
   addressRegion: COMPANY.address.region,
@@ -21,10 +21,16 @@ export function localBusinessSchema() {
     foundingDate: String(COMPANY.foundingYear),
     numberOfEmployees: { "@type": "QuantitativeValue", value: COMPANY.employees },
     address: postalAddress,
+    openingHoursSpecification: {
+      "@type": "OpeningHoursSpecification",
+      dayOfWeek: COMPANY.hours.schema.days,
+      opens: COMPANY.hours.schema.opens,
+      closes: COMPANY.hours.schema.closes,
+    },
     areaServed: ZONES.map((z) => ({ "@type": "AdministrativeArea", name: z.name })),
     description: COMPANY.description,
     logo: { "@type": "ImageObject", url: `${COMPANY.url}/images/logo-bhf.png` },
-    image: `${COMPANY.url}/images/scierie-parc-grumes.jpg`,
+    image: `${COMPANY.url}/images/parc-stock-sciages.jpg`,
   };
 }
 

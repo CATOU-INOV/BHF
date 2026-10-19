@@ -23,3 +23,7 @@ export const ArrowIcon = ({ className = "w-4 h-4" }: P) => (
 export const CheckIcon = ({ className = "w-4 h-4" }: P) => (
   <svg className={className} fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24" aria-hidden="true"><path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7"/></svg>
 );
+
+export const ClockIcon = ({ className = "w-4 h-4" }: P) => (
+  <svg className={className} fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path strokeLinecap="round" strokeLinejoin="round" d="M12 7v5l3 2"/></svg>
+);

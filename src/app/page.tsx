@@ -9,34 +9,34 @@ import { faqSchema } from "@/lib/schema";
 const STATS = [
   { value: `${COMPANY.foundingYear}`, label: "Année de création" },
   { value: `${COMPANY.annualVolumeM3.toLocaleString("fr-FR")} m³`, label: "Sciés chaque année" },
-  { value: "100 %", label: "Bois des Monts du Forez" },
+  { value: `< ${COMPANY.supplyRadiusKm} km`, label: "Origine de nos grumes" },
   { value: "PEFC · CE", label: "Bois certifiés, C18 à C30" },
 ];
 
 const STEPS = [
   {
     title: "Grumes locales",
-    text: "Sapins, épicéas, douglas et mélèzes des forêts qui entourent la scierie, sélectionnés à l'arrivée sur le parc.",
-    image: "/images/grumes-avant-sciage.jpg",
-    alt: "Grumes stockées en lisière de forêt avant sciage",
+    text: "Sapins, épicéas, douglas et mélèzes des forêts situées à moins de 80 km de la scierie, sélectionnés à l'arrivée sur le parc.",
+    image: "/images/stock-grumes.jpg",
+    alt: "Grumes de résineux stockées sur le parc de la scierie avant sciage",
   },
   {
     title: "Sciage et fraisage",
-    text: "Sciage de 3 à 9,20 m en sections standard ou sur liste, fraisage des bois ronds au diamètre constant.",
+    text: "Sciage de 3 à 9,20 m, jusqu'à 420 × 420 mm, en sections standard ou sur liste, et fraisage des bois ronds au diamètre constant.",
     image: "/images/bois-ronds-fraiseuse.jpg",
     alt: "Fraisage d'un bois rond à la scierie",
   },
   {
     title: "Rabotage et traitement",
     text: "Rabotage selon vos cotes et traitement préventif classe 2 pour les bois de charpente.",
-    image: "/images/bois-ossature-rabote.jpg",
-    alt: "Bois d'ossature séchés et rabotés",
+    image: "/images/poutres-rabotees.jpg",
+    alt: "Poutres de forte section rabotées 4 faces",
   },
   {
-    title: "Livraison",
-    text: "Livraison par camion, avec ou sans déchargement, dans la Loire et les départements voisins.",
-    image: "/images/camion-bois-ronds.jpg",
-    alt: "Camion chargé de bois ronds au départ de la scierie",
+    title: "Retrait à la scierie",
+    text: "Vous enlevez votre commande à Chalmazel, du lundi au jeudi de 7 h 30 à 16 h 30, par vos soins ou par votre transporteur.",
+    image: "/images/chargement-bois-ronds-camion.jpg",
+    alt: "Semi-remorque chargée de bois ronds fraisés sur le parc de la scierie",
   },
 ];
 
@@ -50,8 +50,8 @@ export default function HomePage() {
       {/* HERO */}
       <section className="relative isolate overflow-hidden bg-foret-950 text-white">
         <Image
-          src="/images/scierie-parc-grumes.jpg"
-          alt="Parc à grumes et portique de la scierie Bois du Haut Forez à Chalmazel"
+          src="/images/parc-stock-sciages.jpg"
+          alt="Parc de stockage des bois sciés de la scierie Bois du Haut Forez, au pied des forêts de Chalmazel"
           fill
           priority
           sizes="100vw"
@@ -187,11 +187,16 @@ export default function HomePage() {
         </div>
 
         <div className="relative bg-foret-900 bg-trait-scie text-white p-8 md:p-12 flex flex-col">
-          <p className="text-foret-100 font-semibold uppercase tracking-widest text-sm mb-3">Qualité garantie</p>
-          <h2 className="text-4xl font-bold uppercase leading-none mb-6">Des bois certifiés pour la construction</h2>
+          <div className="flex items-start justify-between gap-6 mb-6">
+            <div>
+              <p className="text-foret-100 font-semibold uppercase tracking-widest text-sm mb-3">Qualité garantie</p>
+              <h2 className="text-4xl font-bold uppercase leading-none">Des bois certifiés pour la construction</h2>
+            </div>
+            <Image src={COMPANY.pefc.logo} alt={`Logo PEFC, licence ${COMPANY.pefc.licence}`} width={64} height={122} className="shrink-0 bg-white rounded" />
+          </div>
           <ul className="space-y-4 mb-8">
             {[
-              "Certification PEFC : bois issus de forêts gérées durablement",
+              `Certification PEFC n° ${COMPANY.pefc.licence} : bois issus de forêts gérées durablement`,
               "Marquage CE sur les bois à section rectangulaire",
               "Déclarations de performance C18, C24, C27 et C30",
               "Traitement préventif classe 2 sur demande",
@@ -217,7 +222,7 @@ export default function HomePage() {
       <section className="bg-white border-y border-sciure-200">
         <div className="max-w-7xl mx-auto grid lg:grid-cols-2">
           <div className="relative min-h-[320px]">
-            <Image src="/images/chariot-tronconnage.jpg" alt="Chariot de tronçonnage devant les forêts des Monts du Forez" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
+            <Image src="/images/scierie-chalmazel-vallee.jpg" alt="La scierie Bois du Haut Forez vue des forêts, dans la vallée de Chalmazel" fill sizes="(min-width:1024px) 50vw, 100vw" className="object-cover" />
           </div>
           <div className="px-4 py-16 md:px-14 md:py-20">
             <p className="text-ecorce-600 font-semibold uppercase tracking-widest text-sm mb-3">Qui sommes-nous</p>
@@ -231,9 +236,9 @@ export default function HomePage() {
                 de {COMPANY.annualVolumeM3.toLocaleString("fr-FR")} m³ de bois par an.
               </p>
               <p>
-                Implantés au milieu des forêts, nous travaillons uniquement du bois local et défendons
-                la filière forêt-bois de la Loire. Notre équipe s&apos;adapte à chaque demande, du particulier
-                qui construit son abri au charpentier qui lance un chantier.
+                Implantés au milieu des forêts, nous travaillons uniquement du bois récolté à moins
+                de {COMPANY.supplyRadiusKm} km et défendons la filière forêt-bois de la Loire. Notre équipe s&apos;adapte
+                à chaque demande, du particulier qui construit son abri au charpentier qui lance un chantier.
               </p>
             </div>
             <Link href="/scierie" className="inline-flex items-center gap-2 mt-8 font-semibold text-foret-700 hover:text-foret-600">
@@ -243,7 +248,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* FAQ + ZONES */}
+      {/* FAQ + RETRAIT */}
       <section className="max-w-7xl mx-auto px-4 py-20 md:py-28 grid lg:grid-cols-[1.5fr_1fr] gap-16">
         <div>
           <p className="text-ecorce-600 font-semibold uppercase tracking-widest text-sm mb-3">Questions fréquentes</p>
@@ -251,10 +256,15 @@ export default function HomePage() {
           <Faq items={FAQ_HOME} />
         </div>
         <aside className="bg-sciure-100 p-8 self-start">
-          <h2 className="text-3xl font-bold uppercase text-foret-900 mb-4">Zone de livraison</h2>
-          <p className="text-charbon-700 mb-6">
-            Depuis Chalmazel, nous livrons nos bois dans la Loire et les départements voisins.
+          <h2 className="text-3xl font-bold uppercase text-foret-900 mb-4">Retrait à la scierie</h2>
+          <p className="text-charbon-700 mb-2">
+            Nous ne livrons pas : vos bois sont à enlever à Chalmazel, par vos soins ou par votre transporteur.
           </p>
+          <p className="text-charbon-900 font-semibold mb-6">
+            {COMPANY.hours.label}<br />
+            <span className="font-normal text-charbon-500">{COMPANY.hours.note}</span>
+          </p>
+          <p className="text-sm font-semibold uppercase tracking-wide text-charbon-500 mb-3">Nos clients viennent de</p>
           <ul className="flex flex-wrap gap-2 mb-6">
             {ZONES.map((z) => (
               <li key={z.code} className="bg-foret-700 text-white text-sm font-semibold px-3 py-1.5">{z.name} ({z.code})</li>

@@ -1,14 +1,15 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import PageHero from "@/components/PageHero";
-import { MailIcon, PhoneIcon, PinIcon } from "@/components/Icons";
+import { ClockIcon, MailIcon, PhoneIcon, PinIcon } from "@/components/Icons";
 import { COMPANY } from "@/lib/constants";
 import { breadcrumbSchema, graphSchema, webPageSchema } from "@/lib/schema";
 
 export const metadata: Metadata = {
   title: "Contact — scierie à Chalmazel (Loire)",
   description:
-    "Contactez la scierie Bois du Haut Forez au Pont de Chevelière, Chalmazel-Jeansagnière (42) : téléphone 04 77 24 86 07, email et demande de devis en ligne.",
+    "Contactez la scierie Bois du Haut Forez, 75 chemin du Chatelard à Chalmazel-Jeansagnière (42) : téléphone 04 77 24 86 07, email, horaires et demande de devis en ligne.",
   alternates: { canonical: "/contact" },
 };
 
@@ -20,7 +21,7 @@ const schema = graphSchema(
   ]),
 );
 
-const mapsQuery = encodeURIComponent(`${COMPANY.name}, ${COMPANY.address.locality}, ${COMPANY.address.zip} ${COMPANY.address.city}`);
+const mapsQuery = encodeURIComponent(`${COMPANY.name}, ${COMPANY.address.street}, ${COMPANY.address.zip} ${COMPANY.address.city}`);
 
 export default function ContactPage() {
   return (
@@ -29,7 +30,7 @@ export default function ContactPage() {
       <PageHero
         crumb="Contact"
         title="Contactez la scierie"
-        intro="Une question sur un produit, une liste de bois à chiffrer, une livraison à organiser : appelez-nous ou écrivez-nous."
+        intro="Une question sur un produit, une liste de bois à chiffrer, un enlèvement à organiser : appelez-nous ou écrivez-nous."
       />
       <section className="max-w-7xl mx-auto px-4 py-14 md:py-20 grid md:grid-cols-3 gap-6">
         <a href={`tel:${COMPANY.phoneRaw}`} className="group bg-white border border-sciure-200 hover:border-foret-600 p-8 transition-colors">
@@ -48,12 +49,27 @@ export default function ContactPage() {
           <h2 className="text-2xl font-bold uppercase text-foret-900 mb-1">Adresse</h2>
           <address className="not-italic text-charbon-900">
             {COMPANY.name}<br />
-            {COMPANY.address.locality}<br />
             {COMPANY.address.street}<br />
             {COMPANY.address.zip} {COMPANY.address.city}
           </address>
           <span className="inline-block mt-3 text-sm font-semibold text-foret-700 underline underline-offset-4">Itinéraire Google Maps</span>
         </a>
+      </section>
+
+      <section className="max-w-7xl mx-auto px-4 pb-14 md:pb-20 grid md:grid-cols-[1fr_1.2fr] gap-6">
+        <div className="bg-white border border-sciure-200 p-8">
+          <ClockIcon className="w-8 h-8 text-foret-600 mb-5" />
+          <h2 className="text-2xl font-bold uppercase text-foret-900 mb-3">Horaires d&apos;enlèvement</h2>
+          <p className="font-display text-3xl font-bold text-charbon-900 leading-tight mb-2">{COMPANY.hours.label}</p>
+          <p className="text-charbon-700 mb-6">{COMPANY.hours.note}.</p>
+          <p className="text-charbon-700 border-t border-sciure-200 pt-6">
+            Nous ne livrons pas : vos bois sont à retirer à la scierie, par vos soins ou par votre transporteur.
+            Pour les grandes longueurs (jusqu&apos;à 9,20 m), prévoyez un véhicule adapté.
+          </p>
+        </div>
+        <div className="relative min-h-[320px]">
+          <Image src="/images/accueil-scierie.jpg" alt="Panneau d'accueil à l'entrée de la scierie Bois du Haut Forez" fill sizes="(min-width:768px) 55vw, 100vw" className="object-cover" />
+        </div>
       </section>
 
       <section className="max-w-7xl mx-auto px-4 pb-20">

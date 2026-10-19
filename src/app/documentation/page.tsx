@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import PageHero from "@/components/PageHero";
 import { DownloadIcon } from "@/components/Icons";
 import { COMPANY, DOCUMENTS } from "@/lib/constants";
@@ -54,14 +55,18 @@ export default function DocumentationPage() {
         ))}
       </section>
       <section className="max-w-5xl mx-auto px-4 pb-20">
-        <div className="bg-sciure-100 p-8">
-          <h2 className="text-2xl font-bold uppercase text-foret-900 mb-3">Certifications</h2>
-          <p className="text-charbon-700">
-            La scierie est certifiée PEFC : nos bois proviennent de forêts gérées durablement. Le marquage CE
-            s&apos;applique uniquement aux bois à section rectangulaire. Pour une attestation PEFC ou un document
-            spécifique, contactez-nous au{" "}
-            <a href={`tel:${COMPANY.phoneRaw}`} className="font-semibold text-foret-700 underline">{COMPANY.phone}</a>.
-          </p>
+        <div className="bg-sciure-100 p-8 flex flex-col sm:flex-row gap-8 items-start">
+          <Image src={COMPANY.pefc.logo} alt={`Logo PEFC, licence ${COMPANY.pefc.licence}`} width={90} height={172} className="shrink-0" />
+          <div>
+            <h2 className="text-2xl font-bold uppercase text-foret-900 mb-3">Certifications</h2>
+            <p className="text-charbon-700">
+              La scierie est certifiée PEFC sous la licence n° {COMPANY.pefc.licence} : nos bois proviennent de forêts
+              gérées durablement. Le marquage CE
+              s&apos;applique uniquement aux bois à section rectangulaire. Pour une attestation PEFC ou un document
+              spécifique, contactez-nous au{" "}
+              <a href={`tel:${COMPANY.phoneRaw}`} className="font-semibold text-foret-700 underline">{COMPANY.phone}</a>.
+            </p>
+          </div>
         </div>
       </section>
     </>

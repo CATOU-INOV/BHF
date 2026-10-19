@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     "Rabotage des bois selon vos cotes et traitement préventif classe 2 contre insectes et champignons, pour la charpente et l'ossature. Scierie Bois du Haut Forez à Chalmazel (Loire).",
   alternates: { canonical: "/services/rabotage-traitement" },
-  openGraph: { images: [{ url: "/images/bois-ossature-rabote.jpg" }] },
+  openGraph: { images: [{ url: "/images/poutres-rabotees.jpg" }] },
 };
 
 const FAQ = [
@@ -36,7 +36,7 @@ export default function RabotageTraitementPage() {
       slug="rabotage-traitement"
       h1="Rabotage et traitement du bois"
       intro="Donnez plus de valeur à vos bois : rabotage selon vos cotes pour une finition nette, et traitement préventif classe 2 pour protéger durablement votre charpente."
-      heroImage={{ src: "/images/bois-ossature-rabote.jpg", alt: "Bois d'ossature séchés et rabotés" }}
+      heroImage={{ src: "/images/poutres-rabotees.jpg", alt: "Poutres de forte section rabotées 4 faces" }}
       facts={[
         { label: "Rabotage", value: "Selon vos cotes" },
         { label: "Traitement", value: "Préventif classe 2" },
@@ -49,7 +49,8 @@ export default function RabotageTraitementPage() {
           <p>
             Notre équipement industriel et notre savoir-faire nous permettent d&apos;usiner les pièces de bois
             selon vos exigences. Le rabotage supprime les traces de sciage et calibre les sections : un atout
-            pour les charpentes apparentes et l&apos;ossature bois.
+            pour les charpentes apparentes et l&apos;ossature bois. Nous réalisons aussi le fraisage de profils
+            selon votre demande.
           </p>
           <h2>Le traitement classe 2</h2>
           <p>
@@ -68,14 +69,14 @@ export default function RabotageTraitementPage() {
         </>
       }
       highlights={[
-        "Rabotage aux cotes demandées",
+        "Rabotage aux cotes demandées, fraisage selon demande",
         "Traitement préventif classe 2",
         "Sur débit standard ou sur liste",
         "Ajouté à la même commande que vos bois",
       ]}
       gallery={[
         { src: "/images/bois-ossature-rabote.jpg", alt: "Bois rabotés empilés" },
-        { src: "/images/bois-ossature.jpg", alt: "Bois d'ossature" },
+        { src: "/images/planches-douglas-bout.jpg", alt: "Planches de douglas empilées" },
         { src: "/images/bois-veinage.jpg", alt: "Surface d'un bois raboté" },
         { src: "/images/charpente-bois-ronds.jpg", alt: "Charpente apparente en bois ronds" },
         { src: "/images/abri-voiture-douglas.jpg", alt: "Charpente d'abri en douglas" },

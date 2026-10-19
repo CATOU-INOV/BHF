@@ -13,11 +13,23 @@ export const metadata: Metadata = {
 const FAQ = [
   {
     q: "Comment vous transmettre ma liste de bois ?",
-    a: "Par le formulaire de devis, par email ou par téléphone. Indiquez pour chaque pièce la section, la longueur, la quantité et l'essence souhaitée. Un tableau, un plan de charpente ou même une photo d'une liste manuscrite conviennent.",
+    a: "Par le formulaire de devis, par email ou par téléphone, sous la forme qui vous arrange : tableau Excel, plan de charpente ou photo d'une liste manuscrite. Indiquez pour chaque pièce la section, la longueur, la quantité et l'essence souhaitée.",
   },
   {
-    q: "Quelles longueurs pouvez-vous scier ?",
-    a: "De 3 m à 9,20 m, dans toutes nos essences : douglas, épicéa, mélèze et sapin.",
+    q: "Quelles dimensions pouvez-vous scier ?",
+    a: "De 3 m à 9,20 m de long, jusqu'à 420 × 420 mm de section, dans toutes nos essences : douglas, épicéa, mélèze et sapin.",
+  },
+  {
+    q: "Quel est le délai pour un débit sur liste ?",
+    a: "Environ 2 semaines, à confirmer selon le volume de votre commande. Il n'y a pas de quantité minimum.",
+  },
+  {
+    q: "Le bois est-il sec ?",
+    a: "Nous scions du bois vert ou ressuyé, sans séchage artificiel. Indiquez-nous l'usage prévu, nous vous conseillerons.",
+  },
+  {
+    q: "Sciez-vous à façon les grumes que j'apporte ?",
+    a: "Nous étudions chaque demande au cas par cas : contactez-nous pour un devis sur mesure.",
   },
   {
     q: "Quelle différence avec le débit standard ?",
@@ -35,13 +47,13 @@ export default function SciageDebitSurListePage() {
       kind="service"
       slug="sciage-debit-sur-liste"
       h1="Sciage et débit sur liste"
-      intro="Votre chantier a ses propres cotes. Nous scions les résineux des Monts du Forez aux sections et longueurs exactes de votre liste, de 3 à 9,20 m."
-      heroImage={{ src: "/images/scierie-parc-grumes.jpg", alt: "Parc à grumes et ligne de sciage de la scierie Bois du Haut Forez" }}
+      intro="Votre chantier a ses propres cotes. Nous scions les résineux des Monts du Forez aux sections et longueurs exactes de votre liste, de 3 à 9,20 m et jusqu'à 420 × 420 mm, sans minimum de commande."
+      heroImage={{ src: "/images/parc-grumes-foret.jpg", alt: "Parc à grumes de la scierie Bois du Haut Forez au pied de la forêt" }}
       facts={[
         { label: "Longueurs", value: "3 à 9,20 m" },
         { label: "Essences", value: "Douglas, épicéa, mélèze, sapin" },
-        { label: "Sections", value: "Selon votre liste" },
-        { label: "Options", value: "Raboté, traité cl. 2" },
+        { label: "Sections", value: "Jusqu'à 420 × 420" },
+        { label: "Délai", value: "≈ 2 semaines" },
       ]}
       body={
         <>
@@ -53,14 +65,15 @@ export default function SciageDebitSurListePage() {
           </p>
           <p>
             Charpentiers, constructeurs bois, agriculteurs ou particuliers : vous nous envoyez votre liste,
-            nous la chiffrons, puis nous la scions et la livrons prête à mettre en œuvre.
+            nous la chiffrons, puis nous la scions, prête à mettre en œuvre. Pas de minimum : une seule pièce
+            ou un chantier complet.
           </p>
           <h2>Comment ça se passe ?</h2>
           <ul>
             <li>Vous nous transmettez votre liste : sections, longueurs, quantités, essence</li>
             <li>Nous vous envoyons un devis gratuit</li>
-            <li>Nous scions votre commande, avec rabotage ou traitement si besoin</li>
-            <li>Nous livrons par camion, avec ou sans déchargement</li>
+            <li>Nous scions votre commande en 2 semaines environ, avec rabotage ou traitement si besoin</li>
+            <li>Vous l&apos;enlevez à la scierie, du lundi au jeudi de 7 h 30 à 16 h 30</li>
           </ul>
           <p>
             Pour les sections courantes, consultez aussi notre{" "}
@@ -70,17 +83,18 @@ export default function SciageDebitSurListePage() {
       }
       highlights={[
         "Sciage aux cotes exactes de votre chantier",
-        "Longueurs de 3 à 9,20 m",
+        "Longueurs de 3 à 9,20 m, sections jusqu'à 420 × 420 mm",
+        "Pas de minimum de commande",
         "Quatre essences locales au choix",
         "Rabotage et traitement sur la même commande",
         "Devis gratuit",
       ]}
       gallery={[
-        { src: "/images/grumes-avant-sciage.jpg", alt: "Grumes en attente de sciage" },
-        { src: "/images/chariot-tronconnage.jpg", alt: "Chariot de tronçonnage avant sciage" },
+        { src: "/images/stock-grumes.jpg", alt: "Grumes de résineux en attente de sciage" },
+        { src: "/images/grumes-resineux.jpg", alt: "Bouts de grumes de résineux" },
         { src: "/images/debit-sur-liste.jpg", alt: "Commande de bois débités sur liste" },
-        { src: "/images/debit-standard-stock.jpg", alt: "Piles de bois sciés sur le parc" },
-        { src: "/images/bois-bout-cernes.jpg", alt: "Bout de bois scié montrant les cernes" },
+        { src: "/images/chargement-semi-remorque.jpg", alt: "Commande de bois sciés et de bois ronds chargée sur semi-remorque" },
+        { src: "/images/bois-charpente-grande-longueur.jpg", alt: "Bois de grande longueur sciés sur liste" },
       ]}
       faq={FAQ}
       cta={{

@@ -24,33 +24,26 @@ Les dossiers `recup-wp/`, le `.wpress` et le questionnaire ne sont pas versionn�
 
 ## Avant la mise en ligne
 
-- [ ] Réponses au questionnaire, puis mise à jour des valeurs « À CONFIRMER » dans `constants.ts` : année de création, adresse exacte, email, longueurs et diamètres
-- [ ] Mentions légales : capital social, directeur de publication, greffe (RCS), n° de TVA (`LEGAL` dans `constants.ts`)
-- [ ] Vente aux particuliers et retrait sur place à confirmer (FAQ de l'accueil)
-- [ ] Nouvelles photos : remplacer les images de `public/images/`, dont la plupart font moins de 1 000 px
+- [x] Réponses au questionnaire intégrées (`constants.ts`) : année, adresse, email, horaires, dimensions, pas de livraison, historique, PEFC n° 10-31-735
+- [ ] Mentions légales : directeur de publication, greffe (RCS), n° de TVA à vérifier sur le Kbis (`LEGAL` dans `constants.ts`)
+- [x] Nouvelles photos du parc (octobre 2026) — il manque encore des photos de l'équipe et des machines
+- [ ] Logo BHF en haute définition (vectoriel si possible)
 - [ ] Récupérer le nom de domaine bois-du-haut-forez.fr (OVH, **expire le 2026-11-28**) et boisduhautforez.fr
 - [ ] Resend : vérifier le domaine (DNS SPF + DKIM), créer la clé API, renseigner `.env.local` (voir `.env.example`)
 - [ ] Search Console : vérifier la propriété, puis soumettre `/sitemap.xml`
 - [ ] Mettre à jour le NAP sur la fiche Google Business Profile, Fibois 42 et scierie-locale.fr
 
-## Déploiement (VPS Hostinger, comme PACAP)
+## Déploiement (VPS Hostinger)
 
-Même serveur que pacap84.com : Next.js tourne sous pm2, derrière Nginx Proxy Manager. BHF utilise le **port 3001** (PACAP est sur le 3000).
+Même serveur que pacap84.com et la démo Cayrol Énergie. Chaîne : Nginx Proxy Manager (Docker, ports 80/443) → nginx de l'hôte sur le **port 8087** (`/etc/nginx/sites-available/bhf`) → Next.js sous pm2 sur le **port 3002** (`bhf`). Les ports 3000 et 3001 sont pris par pacap-bois et thomascat-dev.
 
-```bash
-# Première installation
-cd /var/www
-git clone git@github.com:CATOU-INOV/BHF.git bhf      # clé de déploiement GitHub en lecture seule
-cd bhf
-cp .env.example .env.local && nano .env.local        # clé Resend
-npm ci && npm run build
-pm2 start npm --name bhf -- start -- -p 3001
-pm2 save
+- Code : `/var/www/bhf`, cloné avec une clé de déploiement GitHub en lecture seule (`/root/.ssh/bhf_deploy`, alias SSH `github-bhf`)
+- Secrets : `/var/www/bhf/.env.local` (clé Resend, voir `.env.example`)
+- Redéploiement automatique : chaque push sur `main` appelle le webhook `bhf-deploy` (`/etc/webhook/hooks.json`), qui lance `/var/www/bhf-deploy.sh` (pull, `npm ci`, build, `pm2 restart bhf`). Journal : `/var/log/bhf-deploy.log`
+- Démo v0 : `https://bois-du-haut-forez.duckdns.org`, servie avec `X-Robots-Tag: noindex` pour ne pas être indexée
 
-# Mises à jour
-cd /var/www/bhf && git pull && npm ci && npm run build && pm2 restart bhf
-```
+Redéploiement manuel : `ssh root@72.62.238.206 /var/www/bhf-deploy.sh`
 
-Dans Nginx Proxy Manager, ajouter un proxy host `bois-du-haut-forez.fr` + `www.bois-du-haut-forez.fr` vers `http://<ip-docker-host>:3001` (même cible que PACAP, port 3001), avec un certificat SSL Let's Encrypt et la redirection HTTPS forcée. Côté DNS, faire pointer les enregistrements A `@` et `www` vers l'IP du VPS. Le domaine `boisduhautforez.fr` doit rediriger en 301 vers `https://www.bois-du-haut-forez.fr`.
+Pour la mise en production sur bois-du-haut-forez.fr : ajouter un proxy host NPM `bois-du-haut-forez.fr` + `www` vers `172.17.0.1:8087`, retirer l'en-tête `X-Robots-Tag` du nginx de l'hôte, faire pointer les enregistrements A `@` et `www` vers l'IP du VPS, et rediriger `boisduhautforez.fr` en 301 vers `https://www.bois-du-haut-forez.fr`.
 
 Le site redirige déjà les anciennes URL WordPress (pages villes, PDF, mentions légales) : voir `next.config.ts`.
