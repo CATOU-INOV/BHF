@@ -37,7 +37,7 @@ Les dossiers `recup-wp/`, le `.wpress` et le questionnaire ne sont pas versionn�
 
 Même serveur que pacap84.com et la démo Cayrol Énergie. Chaîne : Nginx Proxy Manager (Docker, ports 80/443) → nginx de l'hôte sur le **port 8087** (`/etc/nginx/sites-available/bhf`) → Next.js sous pm2 sur le **port 3002** (`bhf`). Les ports 3000 et 3001 sont pris par pacap-bois et thomascat-dev.
 
-- Code : `/var/www/bhf`, cloné avec une clé de déploiement GitHub en lecture seule (`/root/.ssh/bhf_deploy`, alias SSH `github-bhf`)
+- Code : `/var/www/bhf`, cloné en HTTPS (dépôt public, aucune clé nécessaire)
 - Secrets : `/var/www/bhf/.env.local` (clé Resend, voir `.env.example`)
 - Redéploiement automatique : chaque push sur `main` appelle le webhook `bhf-deploy` (`/etc/webhook/hooks.json`), qui lance `/var/www/bhf-deploy.sh` (pull, `npm ci`, build, `pm2 restart bhf`). Journal : `/var/log/bhf-deploy.log`
 - Démo v0 : `https://bois-du-haut-forez.duckdns.org`, servie avec `X-Robots-Tag: noindex` pour ne pas être indexée
