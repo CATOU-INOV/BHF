@@ -25,6 +25,8 @@ export const metadata: Metadata = {
   },
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large" } },
   alternates: { canonical: "/" },
+  // Search Console : même jeton que l'ancien site WordPress, pour garder la propriété validée
+  verification: { google: "WcDO4xdxFJz7GBs7KJaTYJL3XW5jrnfGu2qbunXNPsU" },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
