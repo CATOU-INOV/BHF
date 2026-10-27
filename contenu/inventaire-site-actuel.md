@@ -36,7 +36,7 @@ Le NAP retenu doit être identique partout : site, fiche Google, annuaires, PACA
 **Bois ronds fraisés** — sapin, douglas ou mélèze, traités ou non — Ø 14 à 33 cm, longueurs de 3 à 9,20 m
 
 **Bois de couverture** — sapin/épicéa ou douglas
-- Liteaux : 20×40, 27×40 (en 3 ou 4 m)
+- Liteaux : 20×40, 27×40, 27×27 (en 3 ou 4 m)
 - Voliges : 15×80, 15×150, 15 toutes largeurs (en 2,5 / 3 / 4 / 5 m)
 
 **Planches** — 27×150, 27×200, 27×250 (en 3 ou 4 m)
@@ -45,7 +45,7 @@ Le NAP retenu doit être identique partout : site, fiche Google, annuaires, PACA
 
 **Aménagements extérieurs**
 - Lames de terrasse : bords arrondis, 2 faces lisses, 28×145 (en 3 ou 4 m)
-- Bardage : mi-bois, 22×135 ou 22×180 (en 3 ou 4 m)
+- Bardage : mi-bois, 24×135 ou 24×185 (en 3 ou 4 m)
 
 **Autres prestations** : rabotage, traitement classe 2, débit sur liste
 

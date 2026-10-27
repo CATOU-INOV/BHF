@@ -33,10 +33,10 @@ const VALEURS = [
 const HISTOIRE = [
   { year: "1956", text: "M. Viallon et M. Parois fondent la SARL Le Bois du Haut Forez à Chalmazel." },
   { year: "1987", text: "L'entreprise est reprise par MM. Reynaud, Parois fils et Delorme. La famille Viallon reste propriétaire des bâtiments." },
-  { year: "1993", text: "Face à un marché du bois en crise, MM. Reynaud et Parois poursuivent l'exploitation en conservant le nom « Le Bois du Haut Forez »." },
-  { year: "2001", text: "Création de la SARL Chalmazel Bois, qui rachète les bâtiments de la scierie." },
-  { year: "2010", text: "Portée par la croissance de son activité, l'exploitation redevient une SARL : Le Bois du Haut Forez." },
-  { year: "2012", text: "Les deux sociétés fusionnent pour former la SARL Bois du Haut Forez. Les parcelles boisées rejoignent un groupement forestier." },
+  { year: "2001", text: "Face à un marché du bois en crise, MM. Reynaud et Parois parviennent à poursuivre l'activité et rachètent les bâtiments via la SARL Chalmazel Bois." },
+  { year: "2010", text: "Portée par la croissance retrouvée de son activité, l'exploitation redevient une seule SARL : Le Bois du Haut Forez." },
+  { year: "2018", text: "MM. Reynaud et Parois partant à la retraite, la scierie est reprise par William et Patrice Gondry, déjà expérimentés dans la filière bois avec leur entreprise familiale du Vaucluse, Pacap Bois. Ils ambitionnent de développer les deux entités grâce à une relation client-fournisseur étroite et bénéfique à chacune." },
+  { year: "2024", text: "Après une série de lourds investissements humains et matériels, la scierie diversifie ses débouchés et augmente sa capacité de production, en conservant son principal atout : la flexibilité de son outil industriel." },
 ];
 
 export default function ScieriePage() {
@@ -124,8 +124,8 @@ export default function ScieriePage() {
             <span className="absolute -left-[9px] top-2 w-4 h-4 bg-ecorce-600 rounded-full" aria-hidden="true" />
             <p className="font-display text-3xl font-bold text-ecorce-600 leading-none mb-1">Aujourd&apos;hui</p>
             <p className="text-charbon-700 leading-relaxed">
-              {COMPANY.employees} salariés, {COMPANY.annualVolumeM3.toLocaleString("fr-FR")} m³ sciés par an et une
-              cinquantaine de clients réguliers, de la Loire aux départements voisins.
+              {COMPANY.employees} salariés, {COMPANY.annualVolumeM3.toLocaleString("fr-FR")} m³ de sciages commercialisés par an et
+              des clients réguliers installés aussi bien localement que dans la basse vallée du Rhône.
             </p>
           </li>
         </ol>

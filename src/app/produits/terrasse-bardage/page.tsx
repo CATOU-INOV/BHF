@@ -6,7 +6,7 @@ import { PARTNER } from "@/lib/constants";
 export const metadata: Metadata = {
   title: "Lames de terrasse douglas et mélèze, bardage douglas local",
   description:
-    "Lames de terrasse 28×145 bords arrondis en douglas ou mélèze et bardage mi-bois 22×135 ou 22×180 en douglas des Monts du Forez, en 3 ou 4 m. Scierie Bois du Haut Forez à Chalmazel (Loire).",
+    "Lames de terrasse 28×145 bords arrondis en douglas ou mélèze et bardage mi-bois 24×135 ou 24×185 en douglas des Monts du Forez, en 3 ou 4 m. Scierie Bois du Haut Forez à Chalmazel (Loire).",
   alternates: { canonical: "/produits/terrasse-bardage" },
   openGraph: { images: [{ url: "/images/lames-terrasse.jpg" }] },
 };
@@ -26,7 +26,7 @@ const FAQ = [
   },
   {
     q: "Qu'est-ce qu'un bardage mi-bois ?",
-    a: "Les lames de bardage mi-bois ont une feuillure sur chaque rive : elles se recouvrent à moitié pour former un parement étanche. Nous les proposons en 22×135 et 22×180, en 3 ou 4 m.",
+    a: "Les lames de bardage mi-bois ont une feuillure sur chaque rive : elles se recouvrent à moitié pour former un parement étanche. Nous les proposons en 24×135 et 24×185, en 3 ou 4 m.",
   },
   {
     q: "Avez-vous les lambourdes pour poser la terrasse ?",
@@ -47,7 +47,7 @@ export default function TerrasseBardagePage() {
       heroImage={{ src: "/images/lames-terrasse.jpg", alt: "Lames de terrasse en résineux local, faces lisses" }}
       facts={[
         { label: "Lames de terrasse", value: "28×145 mm" },
-        { label: "Bardage mi-bois", value: "22×135 · 22×180" },
+        { label: "Bardage mi-bois", value: "24×135 · 24×185" },
         { label: "Longueurs", value: "3 ou 4 m" },
         { label: "Essences", value: "Douglas, mélèze" },
       ]}
@@ -86,14 +86,14 @@ export default function TerrasseBardagePage() {
         columns: ["Produit", "Profil", "Section (mm)", "Longueurs"],
         rows: [
           ["Lames de terrasse (douglas, mélèze)", "Bords arrondis, 2 faces lisses", "28×145", "3 ou 4 m"],
-          ["Bardage (douglas)", "Mi-bois", "22×135 · 22×180", "3 ou 4 m"],
+          ["Bardage (douglas)", "Mi-bois", "24×135 · 24×185", "3 ou 4 m"],
           ["Lambourdes", "Brut", "60×40 · 50×70", "3 ou 4 m"],
         ],
         note: "Source : catalogue Bois du Haut Forez 2025. Vente uniquement, sans pose.",
       }}
       gallery={[
-        { src: "/images/lames-terrasse-douglas.jpg", alt: "Lames de terrasse en douglas empilées à la scierie" },
-        { src: "/images/bardage-mi-bois.jpg", alt: "Profil de lames de bardage mi-bois" },
+        { src: "/images/lames-terrasse-douglas-pose.jpg", alt: "Lames de terrasse en douglas posées à plat, faces striées" },
+        { src: "/images/bardage-mi-bois-douglas.jpg", alt: "Profil mi-bois de lames de bardage en douglas empilées à la scierie" },
         { src: "/images/abri-voiture-douglas.jpg", alt: "Abri voiture en douglas" },
         { src: "/images/planches-douglas-bout.jpg", alt: "Bouts de planches de douglas empilées" },
         { src: "/images/bois-veinage.jpg", alt: "Veinage du douglas" },

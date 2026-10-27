@@ -37,7 +37,7 @@ export default function BoisDeCouverturePage() {
       intro="Liteaux, voliges, planches et lambourdes en sapin/épicéa ou douglas, sciés à Chalmazel dans les bois des Monts du Forez. En 3 ou 4 m, et jusqu'à 5 m pour les voliges."
       heroImage={{ src: "/images/stock-planches-sciees.jpg", alt: "Piles de planches sciées sur le parc de la scierie" }}
       facts={[
-        { label: "Liteaux", value: "20×40 · 27×40" },
+        { label: "Liteaux", value: "20×40 · 27×40 · 27×27" },
         { label: "Voliges", value: "15 mm, toutes largeurs" },
         { label: "Planches", value: "27 mm, 150 à 250" },
         { label: "Essences", value: "Sapin/épicéa, douglas" },
@@ -69,7 +69,7 @@ export default function BoisDeCouverturePage() {
         caption: "Sections disponibles",
         columns: ["Désignation", "Sections (mm)", "Longueurs"],
         rows: [
-          ["Liteaux", "20×40 · 27×40", "3 ou 4 m"],
+          ["Liteaux", "20×40 · 27×40 · 27×27", "3 ou 4 m"],
           ["Voliges", "15×80 · 15×150 · 15 toutes largeurs", "2,5 / 3 / 4 ou 5 m"],
           ["Planches", "27×150 · 27×200 · 27×250", "3 ou 4 m"],
           ["Lambourdes", "60×40 · 50×70", "3 ou 4 m"],
